@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import teams from "../src/data/teams.json";
@@ -50,6 +50,14 @@ describe("App", () => {
     expect(screen.getByText("Position")).toBeInTheDocument();
     expect(screen.getByText("Herkunft")).toBeInTheDocument();
   });
+  it("zählt einen Tipp auf einen Nur-tippbar-Spieler auch nach Neuladen", async () => {
+    at(DAY1);
+    const first = render(<App />); await openDaily();
+    await userEvent.type(screen.getByRole("combobox"), "tony{Enter}");
+    first.unmount();
+    render(<App />); await openDaily();
+    expect(screen.getByLabelText("Versuch 2 von 6")).toBeInTheDocument();
+  });
   it("startet nach Mitternacht ein frisches Rätsel statt des unfertigen von gestern", async () => {
     at(DAY1);
     const first = render(<App />); await openDaily();
@@ -60,6 +68,15 @@ describe("App", () => {
     expect(screen.getByLabelText("Versuch 1 von 6")).toBeInTheDocument();
     expect(screen.getByText("#2")).toBeInTheDocument();
     expect(JSON.parse(localStorage.getItem("thenextchapter:daily-records") ?? '{"records":{}}').records).toEqual({});
+  });
+  it("zeigt am Start nach Mitternacht das neue Rätsel, wenn die App zurückkommt", async () => {
+    at(DAY1); render(<App />); await openDaily();
+    await userEvent.type(screen.getByRole("combobox"), "leb{Enter}");
+    await userEvent.click(screen.getByRole("button", {name: "Zum Start"}));
+    expect(screen.getByText(/Rätsel #1: gelöst/)).toBeInTheDocument();
+    vi.setSystemTime(DAY2);
+    act(() => { document.dispatchEvent(new Event("visibilitychange")); });
+    expect(screen.getByRole("button", {name: /Tagesrätsel #2 spielen/})).toBeInTheDocument();
   });
   it("zeigt bei abgebrochenem Teilen-Dialog keine Meldung", async () => {
     const writeText = vi.fn();

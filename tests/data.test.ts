@@ -3,6 +3,7 @@ import playerData from "../src/data/players.json";
 import decoys from "../src/data/decoys.json";
 import teams from "../src/data/teams.json";
 import dailyOrder from "../src/data/daily-order.json";
+import lockedOrder from "./daily-order.lock.json";
 import { CURRENT_SEASON, moves, teamEra } from "../src/game/career";
 import { NATIONS } from "../src/game/nations";
 import type { Player } from "../src/game/types";
@@ -30,15 +31,15 @@ describe("Spieldaten", () => {
       "Doppelter Kandidatenname").toBe(candidates.length);
   });
 
-  it("enthält in daily-order genau jeden Spieler der Stufen 1 und 2 einmal", () => {
+  it("enthält in daily-order jeden Spieler der Stufen 1 und 2 genau einmal", () => {
     expect(new Set(dailyOrder).size, "Doppelte Tagesrätsel-ID").toBe(dailyOrder.length);
-    for (const id of dailyOrder) {
-      expect(typeof id).toBe("string");
-      const player = players.find(p => p.id === id);
-      expect(player, "Unbekannte Tagesrätsel-ID: " + id).toBeDefined();
-      expect([1, 2], id).toContain(player?.tier);
-    }
-    expect([...dailyOrder].sort()).toEqual(players.filter(p => p.tier <= 2).map(p => p.id).sort());
+    // Spieler dürfen nachträglich die Stufe wechseln, aber nie aus der Reihenfolge verschwinden.
+    for (const id of dailyOrder) expect(players.some(p => p.id === id), "Unbekannte Tagesrätsel-ID: " + id).toBe(true);
+    for (const p of players.filter(p => p.tier <= 2)) expect(dailyOrder, p.id).toContain(p.id);
+  });
+
+  it("ändert die bereits veröffentlichte Reihenfolge nie, sondern ergänzt nur hinten", () => {
+    expect(dailyOrder.slice(0, lockedOrder.length)).toEqual(lockedOrder);
   });
 
   describe.each(players)("$name ($id)", player => {

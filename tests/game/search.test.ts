@@ -56,4 +56,12 @@ describe("Spielersuche", () => {
     const decoys = [{id: "tony-allen", name: "Tony Allen"}];
     expect(search("tony", [...players, ...decoys], new Set()).map(c => c.id)).toEqual(["tony-allen"]);
   });
+  it("ignoriert Apostrophe und Punkte, auch die iPhone-Variante", () => {
+    const list = [player("shaquille-oneal", "Shaquille O'Neal"), player("pj-tucker", "P.J. Tucker"), player("dangelo-russell", "D'Angelo Russell")];
+    const ids = (q: string) => search(q, list, new Set()).map(p => p.id);
+    expect(ids("oneal")).toEqual(["shaquille-oneal"]);
+    expect(ids("o’neal")).toEqual(["shaquille-oneal"]);
+    expect(ids("pj")).toEqual(["pj-tucker"]);
+    expect(ids("dangelo")).toEqual(["dangelo-russell"]);
+  });
 });

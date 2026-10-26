@@ -1,6 +1,6 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { DAILY_ORDER, DECOYS, PLAYERS, TEAMS } from "./data";
-import { puzzleNumber } from "./game/daily";
+import { msUntilNextPuzzle, puzzleNumber } from "./game/daily";
 import { nextPracticePlayer, practicePool } from "./game/pools";
 import { guess, newRound, skip } from "./game/round";
 import type { RoundState } from "./game/round";
@@ -26,10 +26,11 @@ interface Practice { level: PracticeLevel; round: RoundState; seen: Set<string> 
 
 const byId = new Map(PLAYERS.map(p => [p.id, p]));
 const knownIds = new Set(byId.keys());
+const guessableIds = new Set([...knownIds, ...DECOYS.map(d => d.id)]);
 const LEVEL_TITLE: Record<string, string> = { "1": "Stufe 1", "2": "Stufe 1–2", alle: "Alle" };
 
 function freshDaily() {
-  return startDaily(new Date(), loadDaily(knownIds), DAILY_ORDER);
+  return startDaily(new Date(), loadDaily(knownIds, guessableIds), DAILY_ORDER);
 }
 
 export default function App() {
@@ -40,6 +41,16 @@ export default function App() {
   const [practice, setPractice] = useState<Practice | null>(null);
   const [storageOk] = useState(storageAvailable);
   const candidates = useMemo<Candidate[]>(() => [...PLAYERS, ...DECOYS], []);
+
+  // Am Start nach Mitternacht (oder wenn die App aus dem Hintergrund kommt) das neue Rätsel zeigen.
+  useEffect(() => {
+    if (view !== "start") return;
+    const refresh = () => setDaily(freshDaily());
+    const timer = setTimeout(refresh, msUntilNextPuzzle(new Date()) + 1000);
+    const onVisible = () => { if (document.visibilityState === "visible") refresh(); };
+    document.addEventListener("visibilitychange", onVisible);
+    return () => { clearTimeout(timer); document.removeEventListener("visibilitychange", onVisible); };
+  }, [view, daily.puzzle]);
 
   function home() {
     setDaily(freshDaily()); // nach Mitternacht beginnt hier das neue Rätsel

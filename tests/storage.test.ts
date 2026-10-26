@@ -86,4 +86,13 @@ describe("Speicherung", () => {
     vi.spyOn(Storage.prototype, "getItem").mockImplementation(() => {throw new Error("blocked");});
     expect(loadDaily(known)).toBeNull(); expect(loadDailyRecords()).toEqual({}); expect(loadPracticeStats()).toEqual({});
   });
+  it("behält einen Tipp auf einen Nur-tippbar-Spieler nach dem Neuladen", () => {
+    const round = guess(newRound("answer"), "decoy");
+    saveDaily(7, round);
+    expect(loadDaily(known, new Set([...known, "decoy"]))?.round).toEqual(round);
+  });
+  it("lehnt einen Nur-tippbar-Spieler als Lösung ab", () => {
+    saveDaily(7, newRound("decoy"));
+    expect(loadDaily(known, new Set([...known, "decoy"]))).toBeNull();
+  });
 });

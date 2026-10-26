@@ -30,8 +30,8 @@ const isObject = (v: unknown): v is Record<string, unknown> =>
 const isInteger = (v: unknown, min: number, max = Number.MAX_SAFE_INTEGER): v is number =>
   typeof v === "number" && Number.isSafeInteger(v) && v >= min && v <= max;
 
-function isRound(v: unknown, knownIds: Set<string>): v is RoundState {
-  if (!isObject(v) || typeof v.playerId !== "string" || !knownIds.has(v.playerId)
+function isRound(v: unknown, playerIds: Set<string>, guessableIds: Set<string>): v is RoundState {
+  if (!isObject(v) || typeof v.playerId !== "string" || !playerIds.has(v.playerId)
     || !Array.isArray(v.attempts) || v.attempts.length > MAX_ATTEMPTS) return false;
   // Nachspielen prüft auch doppelte Tipps, Züge nach Ende und einen widersprüchlichen Status.
   let round = newRound(v.playerId);
@@ -39,7 +39,7 @@ function isRound(v: unknown, knownIds: Set<string>): v is RoundState {
     if (!isObject(a)) return false;
     let next: RoundState;
     if (a.type === "skip") next = skip(round);
-    else if (a.type === "guess" && typeof a.id === "string" && knownIds.has(a.id)) next = guess(round, a.id);
+    else if (a.type === "guess" && typeof a.id === "string" && guessableIds.has(a.id)) next = guess(round, a.id);
     else return false;
     if (next === round) return false;
     round = next;
@@ -58,9 +58,12 @@ export function storageAvailable(): boolean {
   }
 }
 
-export function loadDaily(knownIds: Set<string>): {puzzle: number; round: RoundState} | null {
+/** playerIds: mögliche Lösungen; guessableIds: alles, was getippt werden kann (inkl. Nur-tippbar-Spieler). */
+export function loadDaily(
+  playerIds: Set<string>, guessableIds: Set<string> = playerIds,
+): {puzzle: number; round: RoundState} | null {
   const v = read(KEYS.daily);
-  if (!isObject(v) || v.v !== 1 || !isInteger(v.puzzle, 1) || !isRound(v.round, knownIds)) return null;
+  if (!isObject(v) || v.v !== 1 || !isInteger(v.puzzle, 1) || !isRound(v.round, playerIds, guessableIds)) return null;
   return {puzzle: v.puzzle, round: v.round};
 }
 

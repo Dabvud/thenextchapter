@@ -3,7 +3,8 @@ import type { Candidate } from "./types";
 export function normalize(s: string): string {
   const replacements: Record<string, string> = {"ø": "o", "đ": "d", "ł": "l", "æ": "ae"};
   return s.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase()
-    .replace(/[øđłæ]/g, c => replacements[c]);
+    .replace(/[øđłæ]/g, c => replacements[c])
+    .replace(/['’ʼ`.]/g, "");
 }
 
 export function search<T extends Candidate>(query: string, players: T[], exclude: Set<string>, limit = 8): T[] {
