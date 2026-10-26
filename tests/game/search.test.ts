@@ -52,4 +52,8 @@ describe("Spielersuche", () => {
     expect(input).toEqual(before);
     expect(exclude.size).toBe(0);
   });
+  it("findet auch Nur-tippbar-Spieler ohne Karrieredaten", () => {
+    const decoys = [{id: "tony-allen", name: "Tony Allen"}];
+    expect(search("tony", [...players, ...decoys], new Set()).map(c => c.id)).toEqual(["tony-allen"]);
+  });
 });

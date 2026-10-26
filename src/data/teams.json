@@ -1,802 +1,102 @@
 [
-  {
-    "code": "STL",
-    "name": "St. Louis Hawks",
-    "from": 1960,
-    "to": 1967,
-    "primary": "#C8102E",
-    "secondary": "#FFFFFF"
-  },
-  {
-    "code": "ATL",
-    "name": "Atlanta Hawks",
-    "from": 1968,
-    "to": 1969,
-    "primary": "#69B3E7",
-    "secondary": "#C8102E"
-  },
-  {
-    "code": "ATL",
-    "name": "Atlanta Hawks",
-    "from": 1970,
-    "to": 1971,
-    "primary": "#003DA5",
-    "secondary": "#78BE21"
-  },
-  {
-    "code": "ATL",
-    "name": "Atlanta Hawks",
-    "from": 1972,
-    "to": 1994,
-    "primary": "#C8102E",
-    "secondary": "#FFC72C"
-  },
-  {
-    "code": "ATL",
-    "name": "Atlanta Hawks",
-    "from": 1995,
-    "to": 2006,
-    "primary": "#C8102E",
-    "secondary": "#000000"
-  },
-  {
-    "code": "ATL",
-    "name": "Atlanta Hawks",
-    "from": 2007,
-    "to": 2014,
-    "primary": "#0C2340",
-    "secondary": "#C8102E"
-  },
-  {
-    "code": "ATL",
-    "name": "Atlanta Hawks",
-    "from": 2015,
-    "to": 2019,
-    "primary": "#C8102E",
-    "secondary": "#C4D600"
-  },
-  {
-    "code": "ATL",
-    "name": "Atlanta Hawks",
-    "from": 2020,
-    "to": null,
-    "primary": "#C8102E",
-    "secondary": "#FFC72C"
-  },
-  {
-    "code": "BOS",
-    "name": "Boston Celtics",
-    "from": 1960,
-    "to": null,
-    "primary": "#007A33",
-    "secondary": "#BA9653"
-  },
-  {
-    "code": "NYN",
-    "name": "New York Nets",
-    "from": 1976,
-    "to": 1976,
-    "primary": "#0032A0",
-    "secondary": "#E4002B"
-  },
-  {
-    "code": "NJN",
-    "name": "New Jersey Nets",
-    "from": 1977,
-    "to": 2011,
-    "primary": "#002A60",
-    "secondary": "#CD1041"
-  },
-  {
-    "code": "BKN",
-    "name": "Brooklyn Nets",
-    "from": 2012,
-    "to": null,
-    "primary": "#000000",
-    "secondary": "#FFFFFF"
-  },
-  {
-    "code": "CHH",
-    "name": "Charlotte Hornets",
-    "from": 1988,
-    "to": 2001,
-    "primary": "#00788C",
-    "secondary": "#1D1160"
-  },
-  {
-    "code": "CHA",
-    "name": "Charlotte Bobcats",
-    "from": 2004,
-    "to": 2006,
-    "primary": "#F9423A",
-    "secondary": "#1B365D"
-  },
-  {
-    "code": "CHA",
-    "name": "Charlotte Bobcats",
-    "from": 2007,
-    "to": 2011,
-    "primary": "#1B365D",
-    "secondary": "#E35205"
-  },
-  {
-    "code": "CHA",
-    "name": "Charlotte Bobcats",
-    "from": 2012,
-    "to": 2013,
-    "primary": "#0C2340",
-    "secondary": "#418FDE"
-  },
-  {
-    "code": "CHA",
-    "name": "Charlotte Hornets",
-    "from": 2014,
-    "to": null,
-    "primary": "#00788C",
-    "secondary": "#1D1160"
-  },
-  {
-    "code": "CHI",
-    "name": "Chicago Bulls",
-    "from": 1966,
-    "to": null,
-    "primary": "#CE1141",
-    "secondary": "#000000"
-  },
-  {
-    "code": "CLE",
-    "name": "Cleveland Cavaliers",
-    "from": 1970,
-    "to": 1982,
-    "primary": "#6F263D",
-    "secondary": "#FFB81C"
-  },
-  {
-    "code": "CLE",
-    "name": "Cleveland Cavaliers",
-    "from": 1983,
-    "to": 1993,
-    "primary": "#006BB6",
-    "secondary": "#F58426"
-  },
-  {
-    "code": "CLE",
-    "name": "Cleveland Cavaliers",
-    "from": 1994,
-    "to": 2002,
-    "primary": "#000000",
-    "secondary": "#0077C0"
-  },
-  {
-    "code": "CLE",
-    "name": "Cleveland Cavaliers",
-    "from": 2003,
-    "to": 2021,
-    "primary": "#860038",
-    "secondary": "#FDBB30"
-  },
-  {
-    "code": "CLE",
-    "name": "Cleveland Cavaliers",
-    "from": 2022,
-    "to": null,
-    "primary": "#6F263D",
-    "secondary": "#FFB81C"
-  },
-  {
-    "code": "DAL",
-    "name": "Dallas Mavericks",
-    "from": 1980,
-    "to": 2000,
-    "primary": "#007A33",
-    "secondary": "#00538C"
-  },
-  {
-    "code": "DAL",
-    "name": "Dallas Mavericks",
-    "from": 2001,
-    "to": null,
-    "primary": "#00538C",
-    "secondary": "#B8C4CA"
-  },
-  {
-    "code": "DEN",
-    "name": "Denver Nuggets",
-    "from": 1976,
-    "to": 1976,
-    "primary": "#003DA5",
-    "secondary": "#D50032"
-  },
-  {
-    "code": "DEN",
-    "name": "Denver Nuggets",
-    "from": 1977,
-    "to": 1981,
-    "primary": "#003DA5",
-    "secondary": "#FFC72C"
-  },
-  {
-    "code": "DEN",
-    "name": "Denver Nuggets",
-    "from": 1982,
-    "to": 1984,
-    "primary": "#041E42",
-    "secondary": "#046A38"
-  },
-  {
-    "code": "DEN",
-    "name": "Denver Nuggets",
-    "from": 1985,
-    "to": 1992,
-    "primary": "#0032A0",
-    "secondary": "#FFE900"
-  },
-  {
-    "code": "DEN",
-    "name": "Denver Nuggets",
-    "from": 1993,
-    "to": 2002,
-    "primary": "#041E42",
-    "secondary": "#9D2235"
-  },
-  {
-    "code": "DEN",
-    "name": "Denver Nuggets",
-    "from": 2003,
-    "to": 2007,
-    "primary": "#418FDE",
-    "secondary": "#0057B7"
-  },
-  {
-    "code": "DEN",
-    "name": "Denver Nuggets",
-    "from": 2008,
-    "to": 2017,
-    "primary": "#418FDE",
-    "secondary": "#041E42"
-  },
-  {
-    "code": "DEN",
-    "name": "Denver Nuggets",
-    "from": 2018,
-    "to": null,
-    "primary": "#0E2240",
-    "secondary": "#FEC524"
-  },
-  {
-    "code": "DET",
-    "name": "Detroit Pistons",
-    "from": 1960,
-    "to": 1995,
-    "primary": "#1D42BA",
-    "secondary": "#C8102E"
-  },
-  {
-    "code": "DET",
-    "name": "Detroit Pistons",
-    "from": 1996,
-    "to": 2000,
-    "primary": "#006272",
-    "secondary": "#9D2235"
-  },
-  {
-    "code": "DET",
-    "name": "Detroit Pistons",
-    "from": 2001,
-    "to": null,
-    "primary": "#1D42BA",
-    "secondary": "#C8102E"
-  },
-  {
-    "code": "PHW",
-    "name": "Philadelphia Warriors",
-    "from": 1960,
-    "to": 1961,
-    "primary": "#006BB6",
-    "secondary": "#FFC72C"
-  },
-  {
-    "code": "SFW",
-    "name": "San Francisco Warriors",
-    "from": 1962,
-    "to": 1970,
-    "primary": "#006BB6",
-    "secondary": "#FFC72C"
-  },
-  {
-    "code": "GSW",
-    "name": "Golden State Warriors",
-    "from": 1971,
-    "to": 1996,
-    "primary": "#006BB6",
-    "secondary": "#FFC72C"
-  },
-  {
-    "code": "GSW",
-    "name": "Golden State Warriors",
-    "from": 1997,
-    "to": 2009,
-    "primary": "#041E42",
-    "secondary": "#BE3A34"
-  },
-  {
-    "code": "GSW",
-    "name": "Golden State Warriors",
-    "from": 2010,
-    "to": null,
-    "primary": "#1D428A",
-    "secondary": "#FFC72C"
-  },
-  {
-    "code": "SDR",
-    "name": "San Diego Rockets",
-    "from": 1967,
-    "to": 1970,
-    "primary": "#007A33",
-    "secondary": "#FDB927"
-  },
-  {
-    "code": "HOU",
-    "name": "Houston Rockets",
-    "from": 1971,
-    "to": 1994,
-    "primary": "#CE1141",
-    "secondary": "#FDB927"
-  },
-  {
-    "code": "HOU",
-    "name": "Houston Rockets",
-    "from": 1995,
-    "to": 2002,
-    "primary": "#041E42",
-    "secondary": "#CE1141"
-  },
-  {
-    "code": "HOU",
-    "name": "Houston Rockets",
-    "from": 2003,
-    "to": null,
-    "primary": "#CE1141",
-    "secondary": "#C4CED4"
-  },
-  {
-    "code": "IND",
-    "name": "Indiana Pacers",
-    "from": 1976,
-    "to": null,
-    "primary": "#002D62",
-    "secondary": "#FDBB30"
-  },
-  {
-    "code": "BUF",
-    "name": "Buffalo Braves",
-    "from": 1970,
-    "to": 1970,
-    "primary": "#002F6C",
-    "secondary": "#D50032"
-  },
-  {
-    "code": "BUF",
-    "name": "Buffalo Braves",
-    "from": 1971,
-    "to": 1972,
-    "primary": "#000000",
-    "secondary": "#FF8200"
-  },
-  {
-    "code": "BUF",
-    "name": "Buffalo Braves",
-    "from": 1973,
-    "to": 1977,
-    "primary": "#418FDE",
-    "secondary": "#000000"
-  },
-  {
-    "code": "SDC",
-    "name": "San Diego Clippers",
-    "from": 1978,
-    "to": 1983,
-    "primary": "#0088CE",
-    "secondary": "#F58426"
-  },
-  {
-    "code": "LAC",
-    "name": "Los Angeles Clippers",
-    "from": 1984,
-    "to": 2014,
-    "primary": "#C8102E",
-    "secondary": "#1D428A"
-  },
-  {
-    "code": "LAC",
-    "name": "LA Clippers",
-    "from": 2015,
-    "to": null,
-    "primary": "#C8102E",
-    "secondary": "#1D428A"
-  },
-  {
-    "code": "LAL",
-    "name": "Los Angeles Lakers",
-    "from": 1960,
-    "to": 1966,
-    "primary": "#006BB6",
-    "secondary": "#FFFFFF"
-  },
-  {
-    "code": "LAL",
-    "name": "Los Angeles Lakers",
-    "from": 1967,
-    "to": null,
-    "primary": "#552583",
-    "secondary": "#FDB927"
-  },
-  {
-    "code": "VAN",
-    "name": "Vancouver Grizzlies",
-    "from": 1995,
-    "to": 2000,
-    "primary": "#00B2A9",
-    "secondary": "#E43C40"
-  },
-  {
-    "code": "MEM",
-    "name": "Memphis Grizzlies",
-    "from": 2001,
-    "to": 2003,
-    "primary": "#00B2A9",
-    "secondary": "#E43C40"
-  },
-  {
-    "code": "MEM",
-    "name": "Memphis Grizzlies",
-    "from": 2004,
-    "to": null,
-    "primary": "#5D76A9",
-    "secondary": "#12173F"
-  },
-  {
-    "code": "MIA",
-    "name": "Miami Heat",
-    "from": 1988,
-    "to": null,
-    "primary": "#98002E",
-    "secondary": "#F9A01B"
-  },
-  {
-    "code": "MIL",
-    "name": "Milwaukee Bucks",
-    "from": 1968,
-    "to": 1992,
-    "primary": "#006B3F",
-    "secondary": "#E03A3E"
-  },
-  {
-    "code": "MIL",
-    "name": "Milwaukee Bucks",
-    "from": 1993,
-    "to": 2005,
-    "primary": "#702F8A",
-    "secondary": "#2C5234"
-  },
-  {
-    "code": "MIL",
-    "name": "Milwaukee Bucks",
-    "from": 2006,
-    "to": 2014,
-    "primary": "#00471B",
-    "secondary": "#E03A3E"
-  },
-  {
-    "code": "MIL",
-    "name": "Milwaukee Bucks",
-    "from": 2015,
-    "to": null,
-    "primary": "#00471B",
-    "secondary": "#EEE1C6"
-  },
-  {
-    "code": "MIN",
-    "name": "Minnesota Timberwolves",
-    "from": 1989,
-    "to": 1995,
-    "primary": "#005083",
-    "secondary": "#00A94F"
-  },
-  {
-    "code": "MIN",
-    "name": "Minnesota Timberwolves",
-    "from": 1996,
-    "to": 2016,
-    "primary": "#005083",
-    "secondary": "#000000"
-  },
-  {
-    "code": "MIN",
-    "name": "Minnesota Timberwolves",
-    "from": 2017,
-    "to": null,
-    "primary": "#0C2340",
-    "secondary": "#236192"
-  },
-  {
-    "code": "NOP",
-    "name": "New Orleans Hornets",
-    "from": 2002,
-    "to": 2004,
-    "primary": "#00778B",
-    "secondary": "#280071"
-  },
-  {
-    "code": "NOP",
-    "name": "New Orleans Hornets",
-    "from": 2007,
-    "to": 2007,
-    "primary": "#00778B",
-    "secondary": "#280071"
-  },
-  {
-    "code": "NOP",
-    "name": "New Orleans Hornets",
-    "from": 2008,
-    "to": 2012,
-    "primary": "#0082BA",
-    "secondary": "#211747"
-  },
-  {
-    "code": "NOP",
-    "name": "New Orleans Pelicans",
-    "from": 2013,
-    "to": null,
-    "primary": "#0C2340",
-    "secondary": "#85714D"
-  },
-  {
-    "code": "NOK",
-    "name": "New Orleans/Oklahoma City Hornets",
-    "from": 2005,
-    "to": 2006,
-    "primary": "#00778B",
-    "secondary": "#280071"
-  },
-  {
-    "code": "NYK",
-    "name": "New York Knicks",
-    "from": 1960,
-    "to": null,
-    "primary": "#006BB6",
-    "secondary": "#F58426"
-  },
-  {
-    "code": "SEA",
-    "name": "Seattle SuperSonics",
-    "from": 1967,
-    "to": 2007,
-    "primary": "#00653A",
-    "secondary": "#FFC200"
-  },
-  {
-    "code": "OKC",
-    "name": "Oklahoma City Thunder",
-    "from": 2008,
-    "to": null,
-    "primary": "#007AC1",
-    "secondary": "#EF3B24"
-  },
-  {
-    "code": "ORL",
-    "name": "Orlando Magic",
-    "from": 1989,
-    "to": null,
-    "primary": "#0077C0",
-    "secondary": "#C4CED4"
-  },
-  {
-    "code": "SYR",
-    "name": "Syracuse Nationals",
-    "from": 1960,
-    "to": 1962,
-    "primary": "#003DA5",
-    "secondary": "#C8102E"
-  },
-  {
-    "code": "PHI",
-    "name": "Philadelphia 76ers",
-    "from": 1963,
-    "to": null,
-    "primary": "#006BB6",
-    "secondary": "#ED174C"
-  },
-  {
-    "code": "PHX",
-    "name": "Phoenix Suns",
-    "from": 1968,
-    "to": null,
-    "primary": "#1D1160",
-    "secondary": "#E56020"
-  },
-  {
-    "code": "POR",
-    "name": "Portland Trail Blazers",
-    "from": 1970,
-    "to": null,
-    "primary": "#E03A3E",
-    "secondary": "#000000"
-  },
-  {
-    "code": "CIN",
-    "name": "Cincinnati Royals",
-    "from": 1960,
-    "to": 1971,
-    "primary": "#003DA5",
-    "secondary": "#C8102E"
-  },
-  {
-    "code": "KCK",
-    "name": "Kansas City-Omaha Kings",
-    "from": 1972,
-    "to": 1974,
-    "primary": "#006BB6",
-    "secondary": "#C8102E"
-  },
-  {
-    "code": "KCK",
-    "name": "Kansas City Kings",
-    "from": 1975,
-    "to": 1984,
-    "primary": "#006BB6",
-    "secondary": "#C8102E"
-  },
-  {
-    "code": "SAC",
-    "name": "Sacramento Kings",
-    "from": 1985,
-    "to": 1993,
-    "primary": "#006BB6",
-    "secondary": "#C8102E"
-  },
-  {
-    "code": "SAC",
-    "name": "Sacramento Kings",
-    "from": 1994,
-    "to": null,
-    "primary": "#5A2D81",
-    "secondary": "#63727A"
-  },
-  {
-    "code": "SAS",
-    "name": "San Antonio Spurs",
-    "from": 1976,
-    "to": null,
-    "primary": "#000000",
-    "secondary": "#C4CED4"
-  },
-  {
-    "code": "TOR",
-    "name": "Toronto Raptors",
-    "from": 1995,
-    "to": 2005,
-    "primary": "#753BBD",
-    "secondary": "#CE1141"
-  },
-  {
-    "code": "TOR",
-    "name": "Toronto Raptors",
-    "from": 2006,
-    "to": null,
-    "primary": "#CE1141",
-    "secondary": "#000000"
-  },
-  {
-    "code": "NOJ",
-    "name": "New Orleans Jazz",
-    "from": 1974,
-    "to": 1978,
-    "primary": "#572C5F",
-    "secondary": "#FFC72C"
-  },
-  {
-    "code": "UTA",
-    "name": "Utah Jazz",
-    "from": 1979,
-    "to": 1995,
-    "primary": "#5F259F",
-    "secondary": "#009A44"
-  },
-  {
-    "code": "UTA",
-    "name": "Utah Jazz",
-    "from": 1996,
-    "to": 2003,
-    "primary": "#753BBD",
-    "secondary": "#00A9E0"
-  },
-  {
-    "code": "UTA",
-    "name": "Utah Jazz",
-    "from": 2004,
-    "to": 2009,
-    "primary": "#002B5C",
-    "secondary": "#6CAEDF"
-  },
-  {
-    "code": "UTA",
-    "name": "Utah Jazz",
-    "from": 2010,
-    "to": 2021,
-    "primary": "#0C2340",
-    "secondary": "#2C5234"
-  },
-  {
-    "code": "UTA",
-    "name": "Utah Jazz",
-    "from": 2022,
-    "to": 2024,
-    "primary": "#000000",
-    "secondary": "#FBE122"
-  },
-  {
-    "code": "UTA",
-    "name": "Utah Jazz",
-    "from": 2025,
-    "to": null,
-    "primary": "#330072",
-    "secondary": "#000000"
-  },
-  {
-    "code": "CHZ",
-    "name": "Chicago Packers",
-    "from": 1961,
-    "to": 1961,
-    "primary": "#0C2340",
-    "secondary": "#C8102E"
-  },
-  {
-    "code": "CHZ",
-    "name": "Chicago Zephyrs",
-    "from": 1962,
-    "to": 1962,
-    "primary": "#041E42",
-    "secondary": "#896C4C"
-  },
-  {
-    "code": "BAL",
-    "name": "Baltimore Bullets",
-    "from": 1963,
-    "to": 1972,
-    "primary": "#006BB6",
-    "secondary": "#E31837"
-  },
-  {
-    "code": "WAS",
-    "name": "Capital Bullets",
-    "from": 1973,
-    "to": 1973,
-    "primary": "#002B5C",
-    "secondary": "#E31837"
-  },
-  {
-    "code": "WAS",
-    "name": "Washington Bullets",
-    "from": 1974,
-    "to": 1996,
-    "primary": "#002B5C",
-    "secondary": "#E31837"
-  },
-  {
-    "code": "WAS",
-    "name": "Washington Wizards",
-    "from": 1997,
-    "to": 2010,
-    "primary": "#002B5C",
-    "secondary": "#B4975A"
-  },
-  {
-    "code": "WAS",
-    "name": "Washington Wizards",
-    "from": 2011,
-    "to": null,
-    "primary": "#002B5C",
-    "secondary": "#E31837"
-  }
+  {"code":"STL","franchise":"ATL","name":"St. Louis Hawks","from":1960,"to":1967,"primary":"#C8102E","secondary":"#FFFFFF"},
+  {"code":"ATL","franchise":"ATL","name":"Atlanta Hawks","from":1968,"to":1969,"primary":"#69B3E7","secondary":"#C8102E"},
+  {"code":"ATL","franchise":"ATL","name":"Atlanta Hawks","from":1970,"to":1971,"primary":"#003DA5","secondary":"#78BE21"},
+  {"code":"ATL","franchise":"ATL","name":"Atlanta Hawks","from":1972,"to":1994,"primary":"#C8102E","secondary":"#FFC72C"},
+  {"code":"ATL","franchise":"ATL","name":"Atlanta Hawks","from":1995,"to":2006,"primary":"#C8102E","secondary":"#000000"},
+  {"code":"ATL","franchise":"ATL","name":"Atlanta Hawks","from":2007,"to":2014,"primary":"#0C2340","secondary":"#C8102E"},
+  {"code":"ATL","franchise":"ATL","name":"Atlanta Hawks","from":2015,"to":2019,"primary":"#C8102E","secondary":"#C4D600"},
+  {"code":"ATL","franchise":"ATL","name":"Atlanta Hawks","from":2020,"to":null,"primary":"#C8102E","secondary":"#FFC72C"},
+  {"code":"NYN","franchise":"BKN","name":"New York Nets","from":1976,"to":1976,"primary":"#0032A0","secondary":"#E4002B"},
+  {"code":"NJN","franchise":"BKN","name":"New Jersey Nets","from":1977,"to":2011,"primary":"#002A60","secondary":"#CD1041"},
+  {"code":"BKN","franchise":"BKN","name":"Brooklyn Nets","from":2012,"to":null,"primary":"#000000","secondary":"#FFFFFF"},
+  {"code":"BOS","franchise":"BOS","name":"Boston Celtics","from":1960,"to":null,"primary":"#007A33","secondary":"#BA9653"},
+  {"code":"CHA","franchise":"CHA","name":"Charlotte Bobcats","from":2004,"to":2006,"primary":"#F9423A","secondary":"#1B365D"},
+  {"code":"CHA","franchise":"CHA","name":"Charlotte Bobcats","from":2007,"to":2011,"primary":"#1B365D","secondary":"#E35205"},
+  {"code":"CHA","franchise":"CHA","name":"Charlotte Bobcats","from":2012,"to":2013,"primary":"#0C2340","secondary":"#418FDE"},
+  {"code":"CHA","franchise":"CHA","name":"Charlotte Hornets","from":2014,"to":null,"primary":"#00788C","secondary":"#1D1160"},
+  {"code":"CHI","franchise":"CHI","name":"Chicago Bulls","from":1966,"to":null,"primary":"#CE1141","secondary":"#000000"},
+  {"code":"CLE","franchise":"CLE","name":"Cleveland Cavaliers","from":1970,"to":1982,"primary":"#6F263D","secondary":"#FFB81C"},
+  {"code":"CLE","franchise":"CLE","name":"Cleveland Cavaliers","from":1983,"to":1993,"primary":"#006BB6","secondary":"#F58426"},
+  {"code":"CLE","franchise":"CLE","name":"Cleveland Cavaliers","from":1994,"to":2002,"primary":"#000000","secondary":"#0077C0"},
+  {"code":"CLE","franchise":"CLE","name":"Cleveland Cavaliers","from":2003,"to":2021,"primary":"#860038","secondary":"#FDBB30"},
+  {"code":"CLE","franchise":"CLE","name":"Cleveland Cavaliers","from":2022,"to":null,"primary":"#6F263D","secondary":"#FFB81C"},
+  {"code":"DAL","franchise":"DAL","name":"Dallas Mavericks","from":1980,"to":2000,"primary":"#007A33","secondary":"#00538C"},
+  {"code":"DAL","franchise":"DAL","name":"Dallas Mavericks","from":2001,"to":null,"primary":"#00538C","secondary":"#B8C4CA"},
+  {"code":"DEN","franchise":"DEN","name":"Denver Nuggets","from":1976,"to":1976,"primary":"#003DA5","secondary":"#D50032"},
+  {"code":"DEN","franchise":"DEN","name":"Denver Nuggets","from":1977,"to":1981,"primary":"#003DA5","secondary":"#FFC72C"},
+  {"code":"DEN","franchise":"DEN","name":"Denver Nuggets","from":1982,"to":1984,"primary":"#041E42","secondary":"#046A38"},
+  {"code":"DEN","franchise":"DEN","name":"Denver Nuggets","from":1985,"to":1992,"primary":"#0032A0","secondary":"#FFE900"},
+  {"code":"DEN","franchise":"DEN","name":"Denver Nuggets","from":1993,"to":2002,"primary":"#041E42","secondary":"#9D2235"},
+  {"code":"DEN","franchise":"DEN","name":"Denver Nuggets","from":2003,"to":2007,"primary":"#418FDE","secondary":"#0057B7"},
+  {"code":"DEN","franchise":"DEN","name":"Denver Nuggets","from":2008,"to":2017,"primary":"#418FDE","secondary":"#041E42"},
+  {"code":"DEN","franchise":"DEN","name":"Denver Nuggets","from":2018,"to":null,"primary":"#0E2240","secondary":"#FEC524"},
+  {"code":"DET","franchise":"DET","name":"Detroit Pistons","from":1960,"to":1995,"primary":"#1D42BA","secondary":"#C8102E"},
+  {"code":"DET","franchise":"DET","name":"Detroit Pistons","from":1996,"to":2000,"primary":"#006272","secondary":"#9D2235"},
+  {"code":"DET","franchise":"DET","name":"Detroit Pistons","from":2001,"to":null,"primary":"#1D42BA","secondary":"#C8102E"},
+  {"code":"PHW","franchise":"GSW","name":"Philadelphia Warriors","from":1960,"to":1961,"primary":"#006BB6","secondary":"#FFC72C"},
+  {"code":"SFW","franchise":"GSW","name":"San Francisco Warriors","from":1962,"to":1970,"primary":"#006BB6","secondary":"#FFC72C"},
+  {"code":"GSW","franchise":"GSW","name":"Golden State Warriors","from":1971,"to":1996,"primary":"#006BB6","secondary":"#FFC72C"},
+  {"code":"GSW","franchise":"GSW","name":"Golden State Warriors","from":1997,"to":2009,"primary":"#041E42","secondary":"#BE3A34"},
+  {"code":"GSW","franchise":"GSW","name":"Golden State Warriors","from":2010,"to":null,"primary":"#1D428A","secondary":"#FFC72C"},
+  {"code":"SDR","franchise":"HOU","name":"San Diego Rockets","from":1967,"to":1970,"primary":"#007A33","secondary":"#FDB927"},
+  {"code":"HOU","franchise":"HOU","name":"Houston Rockets","from":1971,"to":1994,"primary":"#CE1141","secondary":"#FDB927"},
+  {"code":"HOU","franchise":"HOU","name":"Houston Rockets","from":1995,"to":2002,"primary":"#041E42","secondary":"#CE1141"},
+  {"code":"HOU","franchise":"HOU","name":"Houston Rockets","from":2003,"to":null,"primary":"#CE1141","secondary":"#C4CED4"},
+  {"code":"IND","franchise":"IND","name":"Indiana Pacers","from":1976,"to":null,"primary":"#002D62","secondary":"#FDBB30"},
+  {"code":"BUF","franchise":"LAC","name":"Buffalo Braves","from":1970,"to":1970,"primary":"#002F6C","secondary":"#D50032"},
+  {"code":"BUF","franchise":"LAC","name":"Buffalo Braves","from":1971,"to":1972,"primary":"#000000","secondary":"#FF8200"},
+  {"code":"BUF","franchise":"LAC","name":"Buffalo Braves","from":1973,"to":1977,"primary":"#418FDE","secondary":"#000000"},
+  {"code":"SDC","franchise":"LAC","name":"San Diego Clippers","from":1978,"to":1983,"primary":"#0088CE","secondary":"#F58426"},
+  {"code":"LAC","franchise":"LAC","name":"Los Angeles Clippers","from":1984,"to":2014,"primary":"#C8102E","secondary":"#1D428A"},
+  {"code":"LAC","franchise":"LAC","name":"LA Clippers","from":2015,"to":null,"primary":"#C8102E","secondary":"#1D428A"},
+  {"code":"LAL","franchise":"LAL","name":"Los Angeles Lakers","from":1960,"to":1966,"primary":"#006BB6","secondary":"#FFFFFF"},
+  {"code":"LAL","franchise":"LAL","name":"Los Angeles Lakers","from":1967,"to":null,"primary":"#552583","secondary":"#FDB927"},
+  {"code":"VAN","franchise":"MEM","name":"Vancouver Grizzlies","from":1995,"to":2000,"primary":"#00B2A9","secondary":"#E43C40"},
+  {"code":"MEM","franchise":"MEM","name":"Memphis Grizzlies","from":2001,"to":2003,"primary":"#00B2A9","secondary":"#E43C40"},
+  {"code":"MEM","franchise":"MEM","name":"Memphis Grizzlies","from":2004,"to":null,"primary":"#5D76A9","secondary":"#12173F"},
+  {"code":"MIA","franchise":"MIA","name":"Miami Heat","from":1988,"to":null,"primary":"#98002E","secondary":"#F9A01B"},
+  {"code":"MIL","franchise":"MIL","name":"Milwaukee Bucks","from":1968,"to":1992,"primary":"#006B3F","secondary":"#E03A3E"},
+  {"code":"MIL","franchise":"MIL","name":"Milwaukee Bucks","from":1993,"to":2005,"primary":"#702F8A","secondary":"#2C5234"},
+  {"code":"MIL","franchise":"MIL","name":"Milwaukee Bucks","from":2006,"to":2014,"primary":"#00471B","secondary":"#E03A3E"},
+  {"code":"MIL","franchise":"MIL","name":"Milwaukee Bucks","from":2015,"to":null,"primary":"#00471B","secondary":"#EEE1C6"},
+  {"code":"MIN","franchise":"MIN","name":"Minnesota Timberwolves","from":1989,"to":1995,"primary":"#005083","secondary":"#00A94F"},
+  {"code":"MIN","franchise":"MIN","name":"Minnesota Timberwolves","from":1996,"to":2016,"primary":"#005083","secondary":"#000000"},
+  {"code":"MIN","franchise":"MIN","name":"Minnesota Timberwolves","from":2017,"to":null,"primary":"#0C2340","secondary":"#236192"},
+  {"code":"CHH","franchise":"NOP","name":"Charlotte Hornets","from":1988,"to":2001,"primary":"#00788C","secondary":"#1D1160"},
+  {"code":"NOP","franchise":"NOP","name":"New Orleans Hornets","from":2002,"to":2004,"primary":"#00778B","secondary":"#280071"},
+  {"code":"NOP","franchise":"NOP","name":"New Orleans/Oklahoma City Hornets","from":2005,"to":2006,"primary":"#00778B","secondary":"#280071"},
+  {"code":"NOP","franchise":"NOP","name":"New Orleans Hornets","from":2007,"to":2007,"primary":"#00778B","secondary":"#280071"},
+  {"code":"NOP","franchise":"NOP","name":"New Orleans Hornets","from":2008,"to":2012,"primary":"#0082BA","secondary":"#211747"},
+  {"code":"NOP","franchise":"NOP","name":"New Orleans Pelicans","from":2013,"to":null,"primary":"#0C2340","secondary":"#85714D"},
+  {"code":"NYK","franchise":"NYK","name":"New York Knicks","from":1960,"to":null,"primary":"#006BB6","secondary":"#F58426"},
+  {"code":"SEA","franchise":"OKC","name":"Seattle SuperSonics","from":1967,"to":2007,"primary":"#00653A","secondary":"#FFC200"},
+  {"code":"OKC","franchise":"OKC","name":"Oklahoma City Thunder","from":2008,"to":null,"primary":"#007AC1","secondary":"#EF3B24"},
+  {"code":"ORL","franchise":"ORL","name":"Orlando Magic","from":1989,"to":null,"primary":"#0077C0","secondary":"#C4CED4"},
+  {"code":"SYR","franchise":"PHI","name":"Syracuse Nationals","from":1960,"to":1962,"primary":"#003DA5","secondary":"#C8102E"},
+  {"code":"PHI","franchise":"PHI","name":"Philadelphia 76ers","from":1963,"to":null,"primary":"#006BB6","secondary":"#ED174C"},
+  {"code":"PHX","franchise":"PHX","name":"Phoenix Suns","from":1968,"to":null,"primary":"#1D1160","secondary":"#E56020"},
+  {"code":"POR","franchise":"POR","name":"Portland Trail Blazers","from":1970,"to":null,"primary":"#E03A3E","secondary":"#000000"},
+  {"code":"CIN","franchise":"SAC","name":"Cincinnati Royals","from":1960,"to":1971,"primary":"#003DA5","secondary":"#C8102E"},
+  {"code":"KCK","franchise":"SAC","name":"Kansas City-Omaha Kings","from":1972,"to":1974,"primary":"#006BB6","secondary":"#C8102E"},
+  {"code":"KCK","franchise":"SAC","name":"Kansas City Kings","from":1975,"to":1984,"primary":"#006BB6","secondary":"#C8102E"},
+  {"code":"SAC","franchise":"SAC","name":"Sacramento Kings","from":1985,"to":1993,"primary":"#006BB6","secondary":"#C8102E"},
+  {"code":"SAC","franchise":"SAC","name":"Sacramento Kings","from":1994,"to":null,"primary":"#5A2D81","secondary":"#63727A"},
+  {"code":"SAS","franchise":"SAS","name":"San Antonio Spurs","from":1976,"to":null,"primary":"#000000","secondary":"#C4CED4"},
+  {"code":"TOR","franchise":"TOR","name":"Toronto Raptors","from":1995,"to":2005,"primary":"#753BBD","secondary":"#CE1141"},
+  {"code":"TOR","franchise":"TOR","name":"Toronto Raptors","from":2006,"to":null,"primary":"#CE1141","secondary":"#000000"},
+  {"code":"NOJ","franchise":"UTA","name":"New Orleans Jazz","from":1974,"to":1978,"primary":"#572C5F","secondary":"#FFC72C"},
+  {"code":"UTA","franchise":"UTA","name":"Utah Jazz","from":1979,"to":1995,"primary":"#5F259F","secondary":"#009A44"},
+  {"code":"UTA","franchise":"UTA","name":"Utah Jazz","from":1996,"to":2003,"primary":"#753BBD","secondary":"#00A9E0"},
+  {"code":"UTA","franchise":"UTA","name":"Utah Jazz","from":2004,"to":2009,"primary":"#002B5C","secondary":"#6CAEDF"},
+  {"code":"UTA","franchise":"UTA","name":"Utah Jazz","from":2010,"to":2021,"primary":"#0C2340","secondary":"#2C5234"},
+  {"code":"UTA","franchise":"UTA","name":"Utah Jazz","from":2022,"to":2024,"primary":"#000000","secondary":"#FBE122"},
+  {"code":"UTA","franchise":"UTA","name":"Utah Jazz","from":2025,"to":null,"primary":"#330072","secondary":"#000000"},
+  {"code":"CHZ","franchise":"WAS","name":"Chicago Packers","from":1961,"to":1961,"primary":"#0C2340","secondary":"#C8102E"},
+  {"code":"CHZ","franchise":"WAS","name":"Chicago Zephyrs","from":1962,"to":1962,"primary":"#041E42","secondary":"#896C4C"},
+  {"code":"BAL","franchise":"WAS","name":"Baltimore Bullets","from":1963,"to":1972,"primary":"#006BB6","secondary":"#E31837"},
+  {"code":"WAS","franchise":"WAS","name":"Capital Bullets","from":1973,"to":1973,"primary":"#002B5C","secondary":"#E31837"},
+  {"code":"WAS","franchise":"WAS","name":"Washington Bullets","from":1974,"to":1996,"primary":"#002B5C","secondary":"#E31837"},
+  {"code":"WAS","franchise":"WAS","name":"Washington Wizards","from":1997,"to":2010,"primary":"#002B5C","secondary":"#B4975A"},
+  {"code":"WAS","franchise":"WAS","name":"Washington Wizards","from":2011,"to":null,"primary":"#002B5C","secondary":"#E31837"}
 ]

@@ -22,3 +22,9 @@ export function careerView(p: Player, teams: TeamEra[], showYears: boolean): Car
       years: showYears ? formatYears(s) : null };
   });
 }
+
+/** Wechsel zu einer anderen Franchise; Rückkehr zählt, Umzug der Franchise nicht. */
+export function moves(p: Player, teams: TeamEra[]): number {
+  const franchises = p.stations.map(s => teamEra(s.team, s.from, teams)?.franchise ?? s.team);
+  return franchises.filter((f, i) => i > 0 && f !== franchises[i - 1]).length;
+}

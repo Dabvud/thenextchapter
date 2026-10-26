@@ -2,7 +2,7 @@ export type DailyRecords = Record<number, number>;
 export interface DailyStats {
   played: number; won: number; winRate: number; current: number; max: number; dist: number[];
 }
-export type PracticeLevel = 1 | 2 | 3 | "alle";
+export type PracticeLevel = 1 | 2 | "alle";
 export type PracticeStats = Record<string, { played: number; won: number; streak: number }>;
 
 export function recordDaily(r: DailyRecords, n: number, result: number): DailyRecords {

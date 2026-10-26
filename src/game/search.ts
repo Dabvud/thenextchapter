@@ -1,4 +1,4 @@
-import type { Player } from "./types";
+import type { Candidate } from "./types";
 
 export function normalize(s: string): string {
   const replacements: Record<string, string> = {"ø": "o", "đ": "d", "ł": "l", "æ": "ae"};
@@ -6,7 +6,7 @@ export function normalize(s: string): string {
     .replace(/[øđłæ]/g, c => replacements[c]);
 }
 
-export function search(query: string, players: Player[], exclude: Set<string>, limit = 8): Player[] {
+export function search<T extends Candidate>(query: string, players: T[], exclude: Set<string>, limit = 8): T[] {
   const trimmed = query.trim();
   if (trimmed.length < 2) return [];
   const q = normalize(trimmed);

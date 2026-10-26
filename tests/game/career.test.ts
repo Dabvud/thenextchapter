@@ -1,9 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { careerView, formatYears, teamEra } from "../../src/game/career";
+import { careerView, formatYears, moves, teamEra } from "../../src/game/career";
+import { lebron } from "../helpers/players";
 import type { Player } from "../../src/game/types";
 import teams from "../../src/data/teams.json";
 
-const dirk: Player = { id: "dirk-nowitzki", name: "Dirk Nowitzki", tier: 1, position: "F-C", nation: "DEU", draft: {year: 1998, pick: 9}, numbers: [41], stations: [{team: "DAL", from: 1998, to: 2018}] };
+const dirk: Player = { id: "dirk-nowitzki", name: "Dirk Nowitzki", tier: 1, group: "allstar", position: "F-C", nation: "DEU", draft: {year: 1998, pick: 9}, numbers: [41], stations: [{team: "DAL", from: 1998, to: 2018}] };
 
 describe("Karriere", () => {
   it.each([
@@ -36,5 +37,24 @@ describe("Karriere", () => {
     }
     expect(teams.filter(t => t.to === null).map(t => t.code).sort()).toEqual(
       ["ATL","BOS","BKN","CHA","CHI","CLE","DAL","DEN","DET","GSW","HOU","IND","LAC","LAL","MEM","MIA","MIL","MIN","NOP","NYK","OKC","ORL","PHI","PHX","POR","SAC","SAS","TOR","UTA","WAS"].sort());
+  });
+  it("ordnet jeder Epoche eine Franchise zu, Umzüge teilen sie", () => {
+    for (const t of teams) expect(t.franchise).toMatch(/^[A-Z]{3}$/);
+    const franchiseOf = (code: string) => new Set(teams.filter(t => t.code === code).map(t => t.franchise));
+    expect(franchiseOf("SEA")).toEqual(franchiseOf("OKC"));
+    expect(franchiseOf("NJN")).toEqual(franchiseOf("BKN"));
+    expect(franchiseOf("VAN")).toEqual(franchiseOf("MEM"));
+    expect(franchiseOf("CHH")).not.toEqual(franchiseOf("CHA"));
+  });
+  it("führt die Hornets-Jahre in Oklahoma City unter NOP", () => {
+    expect(teams.some(t => t.code === "NOK")).toBe(false);
+    expect(teamEra("NOP", 2005, teams)?.name).toBe("New Orleans/Oklahoma City Hornets");
+  });
+  it("zählt Wechsel: Rückkehr zählt, Umzug nicht", () => {
+    expect(moves(lebron, teams)).toBe(3);
+    expect(moves(dirk, teams)).toBe(0);
+    const durant = {...dirk, stations: [{team: "SEA", from: 2007, to: 2007}, {team: "OKC", from: 2008, to: 2015},
+      {team: "GSW", from: 2016, to: 2018}]};
+    expect(moves(durant, teams)).toBe(1);
   });
 });
