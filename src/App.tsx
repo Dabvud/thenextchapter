@@ -1,3 +1,3 @@
 export default function App() {
-  return <h1>HoopJourney</h1>;
+  return <h1>The Next Chapter</h1>;
 }

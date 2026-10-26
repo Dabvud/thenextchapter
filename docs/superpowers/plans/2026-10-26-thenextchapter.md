@@ -1,14 +1,14 @@
-# HoopJourney Implementation Plan
+# The Next Chapter Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Einzelspieler-PWA „HoopJourney“ (NBA-Spieler an der Vereinshistorie erraten, Tagesrätsel + Übung) bauen, veröffentlichen und zusammen mit Impostor im App-Hub mit Installationshilfe und Hub-QR-Code anbieten.
+**Goal:** Einzelspieler-PWA „The Next Chapter“ (NBA-Spieler an der Vereinshistorie erraten, Tagesrätsel + Übung) bauen, veröffentlichen und zusammen mit Impostor im App-Hub mit Installationshilfe und Hub-QR-Code anbieten.
 
 **Architecture:** Vite + React + TS wie Impostor. Reine Spiellogik in `src/game/` (ohne React, voll getestet), Daten als JSON in `src/data/`, Bildschirme in `src/screens/`, ein zentraler Zustand in `App.tsx`. Kein Server: Das Tagesrätsel ergibt sich aus Datum (Europe/Berlin) + fester Reihenfolge `daily-order.json`.
 
 **Tech Stack:** Vite 6, React 18, TypeScript 5, vite-plugin-pwa, @vite-pwa/assets-generator, Vitest 3 + Testing Library + jsdom (Versionen wie `Desktop\Impostor\package.json`).
 
-**Spec:** `docs/superpowers/specs/2026-10-26-hoopjourney-design.md`
+**Spec:** `docs/superpowers/specs/2026-10-26-thenextchapter-design.md`
 
 **Ausführung (Nutzer-Vorgabe):** Aufgaben mit 🤖 gehen per `codex exec -s workspace-write -C <repo> -o <ergebnis.md> - < prompt.md` an Codex (gpt-6.1-sol, reasoning high); Claude schreibt den Prompt aus der Aufgabe, liest danach den Code und korrigiert. Aufgaben mit 🎨 (Oberfläche) macht Claude selbst mit dem frontend-design-Skill. Aufgaben mit ⚠️ erst nach ausdrücklichem OK des Nutzers.
 
@@ -17,11 +17,11 @@
 - Oberfläche deutsch, korrekte Umlaute; Team- und Spielernamen original.
 - Tageswechsel Mitternacht `Europe/Berlin`.
 - 6 Versuche (`MAX_ATTEMPTS = 6`), höchstens 5 Hinweise.
-- localStorage-Schlüssel mit Präfix `hoopjourney:`, jeder gespeicherte Wert enthält `v: 1`.
+- localStorage-Schlüssel mit Präfix `thenextchapter:`, jeder gespeicherte Wert enthält `v: 1`.
 - Vorschlagsliste sucht immer in allen Spielern; Tagesrätsel-Pool = Stufe 1 + 2.
-- Teilen-URL exakt `https://dabvud.github.io/hoopjourney/`.
+- Teilen-URL exakt `https://dabvud.github.io/thenextchapter/`.
 - Keine Team-Logos, keine Netzwerkzugriffe zur Laufzeit.
-- Deploy-`BASE_PATH` `/hoopjourney/` per Workflow (wie Impostor).
+- Deploy-`BASE_PATH` `/thenextchapter/` per Workflow (wie Impostor).
 - Kein Push, kein GitHub-Repo, kein Merge ohne OK des Nutzers.
 
 ## Review Focus
@@ -34,19 +34,19 @@
 
 ---
 
-## Teil A – HoopJourney
+## Teil A – The Next Chapter
 
 ### Task 1: Projektgerüst 🤖
 
 **Files:**
-- Create: `package.json`, `tsconfig.json`, `vite.config.ts`, `pwa-assets.config.ts`, `index.html`, `.gitignore`, `.github/workflows/deploy.yml`, `src/main.tsx`, `src/App.tsx` (Platzhalter „HoopJourney“), `src/version.ts`, `src/vite-env.d.ts`, `src/styles.css` (leer), `public/icon.svg` (Platzhalter-Kreis)
+- Create: `package.json`, `tsconfig.json`, `vite.config.ts`, `pwa-assets.config.ts`, `index.html`, `.gitignore`, `.github/workflows/deploy.yml`, `src/main.tsx`, `src/App.tsx` (Platzhalter „The Next Chapter“), `src/version.ts`, `src/vite-env.d.ts`, `src/styles.css` (leer), `public/icon.svg` (Platzhalter-Kreis)
 - Test: `tests/setup.ts`, `tests/version.test.ts`, `tests/smoke.test.tsx`
 
 **Interfaces:**
 - Produces: `versionFromDescribe(describe: string, fallback: string): string` (Kopie aus Impostor), globale Konstanten `__APP_VERSION__`, `__BUILD_DATE__`.
 
-- [ ] **Step 1:** Dateien aus `Desktop\Impostor` übernehmen und anpassen: `package.json` (`name: "hoopjourney"`, `version: "1.0.0"`, ohne `qrcode`), `vite.config.ts` (Manifest `name`/`short_name: "HoopJourney"`, `description: "Errate NBA-Spieler an ihrer Karriere – Station für Station."`, `theme_color`/`background_color: "#14110f"`), `deploy.yml` 1:1, `tests/setup.ts` 1:1, `tests/version.test.ts` 1:1.
-- [ ] **Step 2:** `tests/smoke.test.tsx`: rendert `<App />`, erwartet Text „HoopJourney“.
+- [ ] **Step 1:** Dateien aus `Desktop\Impostor` übernehmen und anpassen: `package.json` (`name: "thenextchapter"`, `version: "1.0.0"`, ohne `qrcode`), `vite.config.ts` (Manifest `name`/`short_name: "Next Chapter"`, `description: "Errate NBA-Spieler an ihrer Karriere – Station für Station."`, `theme_color`/`background_color: "#14110f"`), `deploy.yml` 1:1, `tests/setup.ts` 1:1, `tests/version.test.ts` 1:1.
+- [ ] **Step 2:** `tests/smoke.test.tsx`: rendert `<App />`, erwartet Text „The Next Chapter“.
 - [ ] **Step 3:** `npm install`, `npm test` → alle PASS; `npm run build` → ohne Fehler.
 - [ ] **Step 4:** Commit `chore: Projektgerüst wie Impostor`.
 
@@ -176,7 +176,7 @@ Regeln: NFD, Diakritika entfernen, klein; Zusatzersetzungen `ø→o`, `đ→d`, 
   - `dailyStats({4:2}, 5)` → `current 1` (heute noch offen); `dailyStats({3:2}, 5)` → `current 0`
   - `recordDaily({7:2}, 7, 5)` → `{7:2}` (zählt nur einmal)
   - Pools: tier-4-Spieler nur in `"alle"`; `nextPracticePlayer` liefert nie Gesehenes, solange Ungesehenes da ist
-  - Teilen gewonnen `❌ ⏭️ ✅` → `"🏀 HoopJourney #42  3/6\n❌ ⏭️ ✅\nhttps://dabvud.github.io/hoopjourney/"`; verloren → `"X/6"` + 6 Symbole; Text enthält den Spielernamen nicht
+  - Teilen gewonnen `❌ ⏭️ ✅` → `"🏀 The Next Chapter #42  3/6\n❌ ⏭️ ✅\nhttps://dabvud.github.io/thenextchapter/"`; verloren → `"X/6"` + 6 Symbole; Text enthält den Spielernamen nicht
 - [ ] **Step 2–4:** FAIL → umsetzen → PASS.
 - [ ] **Step 5:** Commit `feat: Statistik, Spieler-Pools und Teilen-Text`.
 
@@ -185,7 +185,7 @@ Regeln: NFD, Diakritika entfernen, klein; Zusatzersetzungen `ø→o`, `đ→d`, 
 **Files:** Create `src/storage.ts`; Test `tests/storage.test.ts`
 
 **Interfaces:**
-- Produces: `storageAvailable(): boolean`, `loadDaily(knownIds: Set<string>): { puzzle: number; round: RoundState } | null`, `saveDaily(puzzle: number, round: RoundState): void`, `loadDailyRecords(): DailyRecords`, `saveDailyRecords(r)`, `loadPracticeStats(): PracticeStats`, `savePracticeStats(s)`. Schlüssel `hoopjourney:daily`, `hoopjourney:daily-records`, `hoopjourney:practice-stats`; Werte `{ v: 1, … }`. Lesen/Schreiben in `try/catch` wie Impostor.
+- Produces: `storageAvailable(): boolean`, `loadDaily(knownIds: Set<string>): { puzzle: number; round: RoundState } | null`, `saveDaily(puzzle: number, round: RoundState): void`, `loadDailyRecords(): DailyRecords`, `saveDailyRecords(r)`, `loadPracticeStats(): PracticeStats`, `savePracticeStats(s)`. Schlüssel `thenextchapter:daily`, `thenextchapter:daily-records`, `thenextchapter:practice-stats`; Werte `{ v: 1, … }`. Lesen/Schreiben in `try/catch` wie Impostor.
 
 - [ ] **Step 1: Tests:** speichern → laden ergibt dasselbe; kaputtes JSON → `null` bzw. leere Statistik; `v: 2` → `null`; unbekannte `playerId` → `null`; ungültiger `status` → `null`; `localStorage.setItem` wirft → kein Fehler.
 - [ ] **Step 2–4:** FAIL → umsetzen → PASS.
@@ -212,7 +212,7 @@ Regeln: NFD, Diakritika entfernen, klein; Zusatzersetzungen `ø→o`, `đ→d`, 
 - [ ] **Step 1: Datentests** (gegen echte Dateien): jedes `station.team` hat für jedes Jahr `from..(to ?? 2026)` eine Epoche in `teams.json`; Stationen aufsteigend, `from ≤ to`, Folgestation beginnt im selben oder späteren Jahr als `to` der vorigen; kein Jahr > 2026; nur letzte Station `to: null`; `id` = Kleinbuchstaben-Bindestrich-Form, eindeutig; Namen eindeutig; `draft.year ≤ stations[0].from`; `numbers` nicht leer; `nation` in `NATIONS`; jede `daily-order`-ID existiert, einmalig, `tier ≤ 2`; alle Spieler mit `tier ≤ 2` stehen in `daily-order.json`.
 - [ ] **Step 2:** Codex erstellt ca. 80 Stufe-1-Spieler (Superstars ab 2000 + ca. 15 Legenden: Jordan, Magic, Bird, Kareem, Shaq, Hakeem, Barkley, Malone, Stockton, Olajuwon …), plus die Testfälle aus Review Focus (beide Hardaways in Stufe 3/4). Ausschlussliste aus der Projektnotiz beachten.
 - [ ] **Step 3:** `node scripts/daily-order.mjs`; `npm test` → PASS.
-- [ ] **Step 4:** `scripts/listen-html.cjs <ziel.html>` (nach Stufe gruppiert, Plaketten in Teamfarben, Jahre, Position, Nation, Draft, Nummern; Vorlage `Desktop\Impostor\.superpowers\listen-html.cjs`) → `C:\Users\trill\Desktop\HoopJourney-Liste.html`.
+- [ ] **Step 4:** `scripts/listen-html.cjs <ziel.html>` (nach Stufe gruppiert, Plaketten in Teamfarben, Jahre, Position, Nation, Draft, Nummern; Vorlage `Desktop\Impostor\.superpowers\listen-html.cjs`) → `C:\Users\trill\Desktop\TheNextChapter-Liste.html`.
 - [ ] **Step 5:** Claude prüft Stichproben (alle Spieler mit ≥ 4 Stationen, alle Trades während der Saison), korrigiert.
 - [ ] **Step 6:** Commit `feat: Spielerdaten Stufe 1 mit Datentests`.
 - [ ] **Step 7:** **Nutzer sieht die Liste durch**; Korrekturen einarbeiten, committen.
@@ -252,7 +252,7 @@ Regeln: NFD, Diakritika entfernen, klein; Zusatzersetzungen `ø→o`, `đ→d`, 
 
 - [ ] **Step 1: Tests:** `detectPlatform` für iPhone-Safari-UA, iPhone-CriOS-UA, Android-Chrome-UA, Desktop, `standalone=true` → `"installed"`; `wantsInstall("?installieren")` → true. `InstallHelp`: `android` + `canPrompt` → Button „Installieren“; `android` ohne → Text „Menü ⋮ → App installieren“; `ios-safari` → „Zum Home-Bildschirm“; `ios-other` → „Bitte in Safari öffnen“; `installed` → rendert nichts.
 - [ ] **Step 2–4:** FAIL → umsetzen → PASS. App öffnet `view: "install"` bei `wantsInstall(location.search)` außer bei `installed`; Start hat einen Eintrag „📲 Aufs Handy holen“.
-- [ ] **Step 5:** Icon gestalten (Basketball + gestrichelte Wegstrecke), `npx pwa-assets-generator`, PNG 512 px nach `C:\Users\trill\Desktop\hoopjourney\public\pwa-512x512.png` prüfen.
+- [ ] **Step 5:** Icon gestalten (Basketball + gestrichelte Wegstrecke), `npx pwa-assets-generator`, PNG 512 px nach `C:\Users\trill\Desktop\thenextchapter\public\pwa-512x512.png` prüfen.
 - [ ] **Step 6:** Commit `feat: Installationshilfe und App-Icon`.
 
 ### Task 14: Daten Stufe 2, 3, 4 🤖
@@ -272,26 +272,26 @@ Regeln: NFD, Diakritika entfernen, klein; Zusatzersetzungen `ø→o`, `đ→d`, 
 
 ### Task 16: Veröffentlichen ⚠️
 
-- [ ] **Step 1:** Nach OK: `gh repo create Dabvud/hoopjourney --public --source . --push`, Pages auf „GitHub Actions“ stellen (`gh api -X POST repos/Dabvud/hoopjourney/pages -f build_type=workflow`).
+- [ ] **Step 1:** Nach OK: `gh repo create Dabvud/thenextchapter --public --source . --push`, Pages auf „GitHub Actions“ stellen (`gh api -X POST repos/Dabvud/thenextchapter/pages -f build_type=workflow`).
 - [ ] **Step 2:** `git tag v1.0.0 && git push --tags`; Workflow grün (`gh run watch`).
-- [ ] **Step 3:** `https://dabvud.github.io/hoopjourney/` lädt, Versionsanzeige `v1.0.0`, Projektnotiz aktualisieren.
+- [ ] **Step 3:** `https://dabvud.github.io/thenextchapter/` lädt, Versionsanzeige `v1.0.0`, Projektnotiz aktualisieren.
 
 ## Teil B – Impostor und Hub
 
 ### Task 17: Impostor v1.5.0 – Installationshilfe ⚠️ (Push)
 
-**Files (in `Desktop\Impostor`):** Create `src/install.ts`, `src/components/InstallHelp.tsx` (Kopie aus HoopJourney, Stil an Impostor angepasst), Tests als Kopie; Modify `src/main.tsx` (`captureInstallPrompt()`), `src/App.tsx` (`?installieren` öffnet die Hilfe), `src/screens/ShareScreen.tsx` (Text-Abschnitt „Installieren“ durch `InstallHelp` ersetzen; QR-Code unverändert).
+**Files (in `Desktop\Impostor`):** Create `src/install.ts`, `src/components/InstallHelp.tsx` (Kopie aus The Next Chapter, Stil an Impostor angepasst), Tests als Kopie; Modify `src/main.tsx` (`captureInstallPrompt()`), `src/App.tsx` (`?installieren` öffnet die Hilfe), `src/screens/ShareScreen.tsx` (Text-Abschnitt „Installieren“ durch `InstallHelp` ersetzen; QR-Code unverändert).
 
 - [ ] **Step 1:** Tests kopieren → FAIL. **Step 2:** umsetzen → `npm test` PASS (alle bisherigen 250 Tests weiter grün).
 - [ ] **Step 3:** Commit `feat: Installationshilfe und ?installieren`.
 - [ ] **Step 4:** Nach OK: push, `git tag v1.5.0`, Workflow grün, `https://dabvud.github.io/impostor/?installieren` prüfen.
 
-### Task 18: Hub – HoopJourney, Aufs-Handy-Buttons, Teilen-QR ⚠️ (Push)
+### Task 18: Hub – The Next Chapter, Aufs-Handy-Buttons, Teilen-QR ⚠️ (Push)
 
-**Files (in `Desktop\dabvud.github.io`):** Modify `index.html`, `style.css`, `tests/check.mjs`; Create `icons/hoopjourney.png` (aus `public/pwa-512x512.png`).
+**Files (in `Desktop\dabvud.github.io`):** Modify `index.html`, `style.css`, `tests/check.mjs`; Create `icons/thenextchapter.png` (aus `public/pwa-512x512.png`).
 
 - [ ] **Step 1:** `tests/check.mjs` erweitern: jede Kachel hat einen Link auf `link` und einen auf `link + "?installieren"`; es gibt einen Button „Teilen“ und ein eingebettetes `<svg>` des QR-Codes; noscript enthält beide Kacheln. `node tests/check.mjs` → Fehler.
 - [ ] **Step 2:** QR-SVG einmalig erzeugen: `node -e "require('C:/Users/trill/Desktop/Impostor/node_modules/qrcode').toString('https://dabvud.github.io/',{type:'svg',margin:1}).then(console.log)"`, in `index.html` in einen `<dialog>` einbauen, Button „Teilen“ im Kopf öffnet ihn.
-- [ ] **Step 3:** Kachel-Darstellung: Karte statt Link, darin „Spielen“ und „📲 Aufs Handy“; `APPS` um HoopJourney ergänzen (`name: "HoopJourney"`, `text: "Errate NBA-Spieler an ihrer Karriere – Station für Station."`, `icon: "icons/hoopjourney.png"`, `link: "/hoopjourney/"`, `art: "Web-App"`); noscript nachziehen.
+- [ ] **Step 3:** Kachel-Darstellung: Karte statt Link, darin „Spielen“ und „📲 Aufs Handy“; `APPS` um The Next Chapter ergänzen (`name: "The Next Chapter"`, `text: "Errate NBA-Spieler an ihrer Karriere – Station für Station."`, `icon: "icons/thenextchapter.png"`, `link: "/thenextchapter/"`, `art: "Web-App"`); noscript nachziehen.
 - [ ] **Step 4:** `node tests/check.mjs` → `OK`; lokal im Browser prüfen (Hell/Dunkel, Handybreite, QR scannbar).
-- [ ] **Step 5:** Commit `feat: HoopJourney, Aufs-Handy-Buttons und Teilen-QR`; nach OK push; Notiz app-hub-status aktualisieren.
+- [ ] **Step 5:** Commit `feat: The Next Chapter, Aufs-Handy-Buttons und Teilen-QR`; nach OK push; Notiz app-hub-status aktualisieren.

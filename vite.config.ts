@@ -32,8 +32,8 @@ export default defineConfig({
     VitePWA({
       registerType: "autoUpdate",
       manifest: {
-        name: "HoopJourney",
-        short_name: "HoopJourney",
+        name: "The Next Chapter",
+        short_name: "Next Chapter",
         description: "Errate NBA-Spieler an ihrer Karriere – Station für Station.",
         lang: "de",
         display: "standalone",

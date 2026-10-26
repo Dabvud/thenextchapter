@@ -1,4 +1,4 @@
-# HoopJourney – Design-Spezifikation
+# The Next Chapter – Design-Spezifikation
 
 **Datum:** 2026-10-26
 **Status:** Entwurf, wartet auf Freigabe
@@ -11,7 +11,7 @@ Tagesrätsel wie bei Wordle (ein Spieler pro Tag, für alle gleich, Ergebnis tei
 dazu ein freier Übungsmodus mit Stufen. Stil, Technik und Ablauf wie bei Impostor.
 
 Zusätzlich wird der App-Hub (dabvud.github.io) zur Einstiegsseite, von der aus man
-HoopJourney und Impostor spielen oder aufs Handy holen kann.
+The Next Chapter und Impostor spielen oder aufs Handy holen kann.
 
 **Erfolgskriterien**
 
@@ -25,7 +25,7 @@ HoopJourney und Impostor spielen oder aufs Handy holen kann.
 
 | Thema | Entscheidung |
 |---|---|
-| App-Name / Repo | HoopJourney / `Dabvud/hoopjourney`, URL `https://dabvud.github.io/hoopjourney/` |
+| App-Name / Repo | The Next Chapter / `Dabvud/thenextchapter`, URL `https://dabvud.github.io/thenextchapter/` |
 | App-Art | PWA, wie Impostor |
 | Stack | Vite + React + TypeScript, `vite-plugin-pwa`, Vitest + Testing Library |
 | Hosting | Öffentliches GitHub-Repo, Deploy per GitHub Actions auf GitHub Pages |
@@ -35,10 +35,13 @@ HoopJourney und Impostor spielen oder aufs Handy holen kann.
 | Tipp-Eingabe | Freitext mit Vorschlägen, nur Spieler aus der Datenbank wählbar |
 | Versuche | 6; Überspringen erlaubt (kostet einen Versuch) |
 | Feedback bei Fehltipp | Nur „falsch“, kein Abgleich wie bei Poeltl |
-| Stufen | 1 = Superstars ab 2000 + große Legenden, 2 = bekannte Spieler ab 2000, 3 = Rollenspieler/Journeymen ab 2000, „Alle“ = 1–3 + weitere Legenden vor 2000 |
+| Lösungsspieler | (a) relevante aktive Spieler mit ≥ 2 Wechseln, (b) relevante Spieler mit Karriereende 2020–2026 mit ≥ 2 Wechseln, (c) Legenden und All-Stars ohne Wechselregel (vor 2020 nur bekannte All-Stars der jeweiligen Ära; dazu aktuelle Superstars mit < 2 Wechseln wie Curry, Giannis, Jokić) |
+| Wechsel | Übergang zu einer anderen Franchise; Rückkehr zählt, Umzug einer Franchise (Sonics → Thunder) nicht |
+| Nur tippbar | Relevante Spieler, die durch die Wechselregel fallen: stehen in der Vorschlagsliste, sind aber nie die Lösung (`decoys.json`) |
+| Stufen | 1 = Superstars, 2 = bekannte Spieler, 3 = Rollenspieler/Journeymen (nach Bekanntheit bei einem NBA-Fan in Deutschland), „Alle“ = Stufe 1–3 |
 | Tagesrätsel-Pool | Stufe 1 + 2 |
-| Übungs-Pool | Stufe 1, 1–2, 1–3 oder „Alle“ (kumulativ, wählbar) |
-| Vorschlagsliste | Immer alle Spieler („Alle“) |
+| Übungs-Pool | Stufe 1, 1–2 oder „Alle“ (kumulativ, wählbar) |
+| Vorschlagsliste | Alle Lösungsspieler + alle Nur-tippbar-Spieler |
 | Zählende Stationen | Nur Teams mit mindestens einem regulären NBA-Spiel |
 | Daten | Codex erstellt `players.json` aus seinem Wissen, Prüfung per Tests, Stichproben und HTML-Übersicht (wie Impostor) |
 | Datenstand | Saisonstart 2026-27, in den Regeln angezeigt |
@@ -50,7 +53,7 @@ HoopJourney und Impostor spielen oder aufs Handy holen kann.
 ## 3. Architektur
 
 ```
-Desktop\hoopjourney
+Desktop\thenextchapter
 ├─ src/data/
 │   ├─ players.json       alle Spieler (Lösungen + Vorschlagsliste)
 │   ├─ teams.json         Teams mit Kürzel, Name, Farben, Epochen
@@ -73,12 +76,15 @@ Desktop\hoopjourney
 
 ### 3.1 Datenformat
 
-`teams.json`, ein Eintrag pro Franchise-Epoche:
+`teams.json`, ein Eintrag pro Franchise-Epoche; `franchise` ist für alle Epochen einer
+Franchise gleich (SEA und OKC → `"OKC"`), daran erkennt man Wechsel vs. Umzug:
 
 ```json
-{ "code": "SEA", "name": "Seattle SuperSonics", "from": 1967, "to": 2008,
+{ "code": "SEA", "franchise": "OKC", "name": "Seattle SuperSonics", "from": 1967, "to": 2007,
   "primary": "#00653A", "secondary": "#FFC200" }
 ```
+
+`decoys.json`, nur tippbare Spieler: `[{ "id": "tony-allen", "name": "Tony Allen" }, …]`
 
 `players.json`, ein Eintrag pro Spieler:
 
@@ -100,7 +106,9 @@ Desktop\hoopjourney
 }
 ```
 
-- `tier`: 1, 2, 3 oder 4 (4 = nur in „Alle“, Legenden vor 2000).
+- `tier`: 1, 2 oder 3.
+- `group`: `"aktiv"`, `"retired2020"` oder `"allstar"` (Regel siehe Abschnitt 2); für `aktiv`
+  und `retired2020` gilt: mindestens 2 Wechsel.
 - `position`: `G`, `F`, `C`, `G-F`, `F-C`.
 - `nation`: ISO-Code, die Anzeige übersetzt ins Deutsche („Frankreich“).
 - `draft`: `null` = undrafted.
@@ -142,7 +150,8 @@ Desktop\hoopjourney
 - Vergleich ohne Groß-/Kleinschreibung und ohne Akzente („doncic“ findet „Luka Dončić“).
 - Trifft auf Anfang von Vor- oder Nachname und des ganzen Namens; Anfangstreffer zuerst,
   dann alphabetisch; höchstens 8 Vorschläge; erst ab 2 Zeichen.
-- Sucht immer in allen Spielern, unabhängig vom Modus.
+- Sucht immer in allen Lösungsspielern und Nur-tippbar-Spielern, unabhängig vom Modus.
+  Ein Tipp auf einen Nur-tippbar-Spieler ist ein normaler Fehltipp.
 
 ### 3.6 Statistik und Teilen
 
@@ -152,15 +161,15 @@ Desktop\hoopjourney
 - **Übung:** pro Stufe gespielt, gewonnen, aktuelle Serie.
 - **Teilen-Text** (Web Share API, sonst Zwischenablage, sonst Text zum Markieren):
   ```
-  🏀 HoopJourney #42  3/6
+  🏀 The Next Chapter #42  3/6
   ❌ ⏭️ ✅
-  https://dabvud.github.io/hoopjourney/
+  https://dabvud.github.io/thenextchapter/
   ```
   ❌ = Fehltipp, ⏭️ = übersprungen, ✅ = gelöst; verloren = `X/6`. Kein Spielername.
 
 ### 3.7 Speicherung (`storage.ts`)
 
-- Schlüssel mit Präfix `hoopjourney:` und Versionsnummer im Inhalt.
+- Schlüssel mit Präfix `thenextchapter:` und Versionsnummer im Inhalt.
 - Laufendes Tagesrätsel (`puzzleNumber` + Rundenzustand) wird nach jedem Zug gespeichert.
 - Ist das heutige Rätsel erledigt, zeigt der Start das Ergebnis und einen Countdown.
 - Übung: Spieler der aktuellen Sitzung kommen erst wieder, wenn der Pool durch ist.
@@ -194,8 +203,9 @@ Claude mit dem frontend-design-Skill, nicht durch Codex.
 
 ## 6. Daten erstellen und prüfen
 
-1. Codex erstellt Namenslisten mit Stufen (Zielgrößen: Stufe 1 ca. 80 inkl. ca. 15 Legenden,
-   Stufe 2 ca. 150, Stufe 3 ca. 200+, Stufe 4 ca. 50 Legenden vor 2000).
+1. Codex erstellt die Namensliste mit Gruppe, Stufe und Wechselzahl (Zielgrößen: aktiv
+   ca. 200, retired2020 ca. 75, allstar ca. 90, nur tippbar ca. 80); der Nutzer sieht sie
+   durch, bevor Karrieredaten gefüllt werden.
 2. Codex füllt die Daten in Paketen zu ca. 50 Spielern.
 3. Claude prüft Stichproben, besonders Journeymen und Trades während der Saison, und korrigiert.
 4. Der Nutzer sieht die HTML-Übersicht (`node scripts/listen-html.cjs <ziel.html>`) durch.
@@ -207,7 +217,10 @@ Claude mit dem frontend-design-Skill, nicht durch Codex.
 - Stationen aufsteigend, `from ≤ to`, keine Überlappung außer dem Trade-Jahr am Übergang,
   kein Jahr nach 2026.
 - Nur die letzte Station darf `to: null` haben.
-- IDs und Namen eindeutig, Pflichtfelder vorhanden, Draft-Jahr ≤ erstes Stationsjahr.
+- IDs und Namen eindeutig (auch über `decoys.json` hinweg), Pflichtfelder vorhanden,
+  Draft-Jahr ≤ erstes Stationsjahr.
+- Spieler der Gruppen `aktiv` und `retired2020` haben mindestens 2 Wechsel; `retired2020`
+  hat eine letzte Station mit Ende 2019–2025 (Karriereende 2020–2026), `aktiv` endet mit `to: null`.
 - Jede ID in `daily-order.json` existiert, kommt einmal vor und hat Stufe 1 oder 2.
 - Tagesrätsel-Pool ≥ 200 Spieler.
 
@@ -235,8 +248,8 @@ Claude mit dem frontend-design-Skill, nicht durch Codex.
 ## 9. App-Hub und Impostor
 
 **Hub (`Desktop\dabvud.github.io`):**
-- Neue Kachel HoopJourney: Icon `icons/hoopjourney.png` (512 px), Text „Errate
-  NBA-Spieler an ihrer Karriere – Station für Station.“, Art „Web-App“, Link `/hoopjourney/`.
+- Neue Kachel The Next Chapter: Icon `icons/thenextchapter.png` (512 px), Text „Errate
+  NBA-Spieler an ihrer Karriere – Station für Station.“, Art „Web-App“, Link `/thenextchapter/`.
 - Jede Kachel bekommt zwei Buttons: „Spielen“ (`link`) und „📲 Aufs Handy“
   (`link + "?installieren"`). Das Array `APPS` behält seine Felder.
 - Oben ein Button „Teilen“, der einen QR-Code zu `https://dabvud.github.io/` groß anzeigt.
@@ -255,7 +268,7 @@ Claude mit dem frontend-design-Skill, nicht durch Codex.
 3. Oberfläche inkl. `InstallHelp` und Icon – Claude.
 4. Daten Stufe 2, 3, 4 in Paketen, jeweils mit Durchsicht.
 5. Lokale Abnahme auf dem Handy (Dev-Server im WLAN) nach Checkliste.
-6. **Nach OK:** Repo `Dabvud/hoopjourney` anlegen, Pages, Push → v1.0.0.
+6. **Nach OK:** Repo `Dabvud/thenextchapter` anlegen, Pages, Push → v1.0.0.
 7. **Nach OK:** Impostor v1.5.0 (Installationshilfe).
 8. **Nach OK:** Hub (Kachel, zwei Buttons pro Kachel, Teilen mit QR-Code).
 

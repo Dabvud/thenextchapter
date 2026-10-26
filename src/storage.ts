@@ -3,9 +3,9 @@ import type { RoundState } from "./game/round";
 import type { DailyRecords, PracticeStats } from "./game/stats";
 
 const KEYS = {
-  daily: "hoopjourney:daily",
-  records: "hoopjourney:daily-records",
-  practice: "hoopjourney:practice-stats",
+  daily: "thenextchapter:daily",
+  records: "thenextchapter:daily-records",
+  practice: "thenextchapter:practice-stats",
 };
 
 function read(key: string): unknown {
@@ -49,7 +49,7 @@ function isRound(v: unknown, knownIds: Set<string>): v is RoundState {
 
 export function storageAvailable(): boolean {
   try {
-    const key = "hoopjourney:storage-test";
+    const key = "thenextchapter:storage-test";
     localStorage.setItem(key, JSON.stringify({v: 1}));
     localStorage.removeItem(key);
     return true;
