@@ -3,7 +3,7 @@ import { finishDaily, startDaily } from "../../src/game/session";
 import { guess, newRound, skip } from "../../src/game/round";
 
 const order = ["yesterday", "today", "tomorrow"];
-const now = new Date("2026-11-02T10:00:00Z");
+const now = new Date("2026-10-27T10:00:00Z");
 
 describe("Tagesrätsel-Sitzung", () => {
   it("setzt die heutige gespeicherte Runde fort", () => {
@@ -25,9 +25,9 @@ describe("Tagesrätsel-Sitzung", () => {
     expect(saved).toEqual(before);
   });
   it("wechselt bei über Mitternacht offener App auf eine frische Runde", () => {
-    const before = startDaily(new Date("2026-11-01T22:59:59Z"), null, order);
+    const before = startDaily(new Date("2026-10-26T22:59:59Z"), null, order);
     const inProgress = {...before, round: skip(before.round)};
-    const after = startDaily(new Date("2026-11-01T23:00:00Z"), inProgress, order);
+    const after = startDaily(new Date("2026-10-26T23:00:00Z"), inProgress, order);
     expect(before.puzzle).toBe(1);
     expect(after).toEqual({puzzle: 2, round: newRound("today")});
     expect(finishDaily({}, inProgress.puzzle, inProgress.round)).toEqual({});
