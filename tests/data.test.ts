@@ -53,10 +53,7 @@ describe("Spieldaten", () => {
       expect(["G", "F", "C", "G-F", "F-C"]).toContain(player.position);
       expect(Object.hasOwn(NATIONS, player.nation), "Unbekannte Nation: " + player.nation).toBe(true);
       expect(player.numbers.length).toBeGreaterThan(0);
-      for (const number of player.numbers) {
-        expect(Number.isInteger(number)).toBe(true);
-        expect(number).toBeGreaterThanOrEqual(0);
-      }
+      for (const number of player.numbers) expect(number).toMatch(/^(00|[0-9]|[1-9][0-9])$/);
       expect(player.stations.length).toBeGreaterThan(0);
       expect(player).toHaveProperty("draft");
       if (player.draft !== null) {

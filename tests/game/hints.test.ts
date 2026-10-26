@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { hints, initials } from "../../src/game/hints";
 import { NATIONS } from "../../src/game/nations";
-import { lebron } from "../helpers/players";
+import { lebron, player } from "../helpers/players";
 import type { Position } from "../../src/game/types";
 
 describe("Hinweise", () => {
@@ -34,5 +34,8 @@ describe("Hinweise", () => {
     const before = structuredClone(lebron);
     hints(lebron, 5);
     expect(lebron).toEqual(before);
+  });
+  it("unterscheidet 00 von 0", () => {
+    expect(hints(player("x", "Royce O'Neale", {numbers: ["23", "00"]}), 4)[3].text).toBe("#23, #00");
   });
 });

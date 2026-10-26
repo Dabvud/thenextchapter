@@ -4,7 +4,7 @@ import { lebron } from "../helpers/players";
 import type { Player } from "../../src/game/types";
 import teams from "../../src/data/teams.json";
 
-const dirk: Player = { id: "dirk-nowitzki", name: "Dirk Nowitzki", tier: 1, group: "allstar", position: "F-C", nation: "DEU", draft: {year: 1998, pick: 9}, numbers: [41], stations: [{team: "DAL", from: 1998, to: 2018}] };
+const dirk: Player = { id: "dirk-nowitzki", name: "Dirk Nowitzki", tier: 1, group: "allstar", position: "F-C", nation: "DEU", draft: {year: 1998, pick: 9}, numbers: ["41"], stations: [{team: "DAL", from: 1998, to: 2018}] };
 
 describe("Karriere", () => {
   it.each([
