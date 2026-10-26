@@ -87,3 +87,17 @@ describe("App", () => {
     expect(screen.getByLabelText("Versuch 1 von 6")).toBeInTheDocument();
   });
 });
+
+describe("App – Installationshilfe", () => {
+  afterEach(() => window.history.replaceState({}, "", "/"));
+  it("öffnet mit ?installieren direkt die Installationshilfe", () => {
+    window.history.replaceState({}, "", "/?installieren");
+    render(<App />);
+    expect(screen.getByRole("heading", {name: "Aufs Handy holen"})).toBeInTheDocument();
+  });
+  it("erreicht die Installationshilfe vom Start aus", async () => {
+    render(<App />);
+    await userEvent.click(screen.getByRole("button", {name: "📲 Aufs Handy holen"}));
+    expect(screen.getByRole("heading", {name: "Aufs Handy holen"})).toBeInTheDocument();
+  });
+});

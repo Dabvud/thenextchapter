@@ -208,3 +208,13 @@ h1, h2 { margin: 0; }
 @keyframes chapter-in {
   from { opacity: 0; transform: translateY(6px); }
 }
+
+/* Installationshilfe */
+.install { display: flex; flex-direction: column; gap: 14px; }
+.install h2 { font-size: 26px; font-weight: 900; letter-spacing: -0.02em; }
+.install p { margin: 0; }
+.steps { margin: 0; padding: 0; list-style: none; counter-reset: step; display: flex; flex-direction: column; gap: 8px; }
+.steps li { counter-increment: step; display: grid; grid-template-columns: 32px 1fr; align-items: center; gap: 10px; padding: 12px; background: var(--surface); border-radius: var(--radius); }
+.steps li::before { content: counter(step); display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); font-weight: 800; }
+.glyph { color: var(--accent); }
+.steps-note { padding: 12px; background: var(--surface); border-radius: var(--radius); }

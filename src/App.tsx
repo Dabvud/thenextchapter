@@ -10,6 +10,8 @@ import { dailyStats, recordPractice } from "./game/stats";
 import type { PracticeLevel } from "./game/stats";
 import type { Candidate, Player } from "./game/types";
 import { shareResult } from "./share";
+import { canPromptInstall, detectPlatform, isStandalone, promptInstall, wantsInstall } from "./install";
+import InstallHelp from "./components/InstallHelp";
 import {
   loadDaily, loadDailyRecords, loadPracticeStats, saveDaily, saveDailyRecords, savePracticeStats, storageAvailable,
 } from "./storage";
@@ -31,7 +33,9 @@ function freshDaily() {
 }
 
 export default function App() {
-  const [view, setView] = useState<View>("start");
+  const [platform] = useState(() => detectPlatform(navigator.userAgent, isStandalone()));
+  const [view, setView] = useState<View>(() => (wantsInstall(location.search) && platform !== "installed" ? "install" : "start"));
+  const [canPrompt, setCanPrompt] = useState(canPromptInstall);
   const [daily, setDaily] = useState(freshDaily);
   const [practice, setPractice] = useState<Practice | null>(null);
   const [storageOk] = useState(storageAvailable);
@@ -95,6 +99,14 @@ export default function App() {
     return <StatsScreen daily={dailyStats(loadDailyRecords(), puzzleNumber(new Date()))} practice={loadPracticeStats()} onBack={home} />;
   }
   if (view === "rules") return <RulesScreen onBack={home} />;
+  if (view === "install") {
+    return (
+      <main className="screen page">
+        <InstallHelp platform={platform} canPrompt={canPrompt} onClose={home}
+          onPrompt={() => { void promptInstall().then(() => setCanPrompt(canPromptInstall())); }} />
+      </main>
+    );
+  }
 
   return (
     <StartScreen
