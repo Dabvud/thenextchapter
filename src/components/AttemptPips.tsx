@@ -9,7 +9,7 @@ export default function AttemptPips({ round }: { round: RoundState }) {
       {Array.from({ length: MAX_ATTEMPTS }, (_, i) => {
         const a = round.attempts[i];
         const kind = !a ? "open" : a.type === "skip" ? "skip" : a.id === round.playerId ? "hit" : "miss";
-        return <span key={i} className={`pip ${kind}`} />;
+        return <span key={i} className={`pip pip-${kind}`} />;
       })}
     </div>
   );
