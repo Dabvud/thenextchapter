@@ -1,0 +1,410 @@
+[
+  {
+    "id": "aaron-gordon",
+    "name": "Aaron Gordon"
+  },
+  {
+    "id": "aaron-nesmith",
+    "name": "Aaron Nesmith"
+  },
+  {
+    "id": "alex-sarr",
+    "name": "Alex Sarr"
+  },
+  {
+    "id": "amen-thompson",
+    "name": "Amen Thompson"
+  },
+  {
+    "id": "andre-roberson",
+    "name": "Andre Roberson"
+  },
+  {
+    "id": "andrew-nembhard",
+    "name": "Andrew Nembhard"
+  },
+  {
+    "id": "anthony-black",
+    "name": "Anthony Black"
+  },
+  {
+    "id": "ariel-hukporti",
+    "name": "Ariel Hukporti"
+  },
+  {
+    "id": "ausar-thompson",
+    "name": "Ausar Thompson"
+  },
+  {
+    "id": "austin-reaves",
+    "name": "Austin Reaves"
+  },
+  {
+    "id": "ayo-dosunmu",
+    "name": "Ayo Dosunmu"
+  },
+  {
+    "id": "bilal-coulibaly",
+    "name": "Bilal Coulibaly"
+  },
+  {
+    "id": "brandin-podziemski",
+    "name": "Brandin Podziemski"
+  },
+  {
+    "id": "brandon-miller",
+    "name": "Brandon Miller"
+  },
+  {
+    "id": "bub-carrington",
+    "name": "Bub Carrington"
+  },
+  {
+    "id": "cason-wallace",
+    "name": "Cason Wallace"
+  },
+  {
+    "id": "christian-braun",
+    "name": "Christian Braun"
+  },
+  {
+    "id": "coby-white",
+    "name": "Coby White"
+  },
+  {
+    "id": "cooper-flagg",
+    "name": "Cooper Flagg"
+  },
+  {
+    "id": "dayron-sharpe",
+    "name": "Day'Ron Sharpe"
+  },
+  {
+    "id": "dereck-lively-ii",
+    "name": "Dereck Lively II"
+  },
+  {
+    "id": "derik-queen",
+    "name": "Derik Queen"
+  },
+  {
+    "id": "derrick-white",
+    "name": "Derrick White"
+  },
+  {
+    "id": "desmond-bane",
+    "name": "Desmond Bane"
+  },
+  {
+    "id": "devin-vassell",
+    "name": "Devin Vassell"
+  },
+  {
+    "id": "donovan-clingan",
+    "name": "Donovan Clingan"
+  },
+  {
+    "id": "drew-timme",
+    "name": "Drew Timme"
+  },
+  {
+    "id": "duncan-robinson",
+    "name": "Duncan Robinson"
+  },
+  {
+    "id": "dylan-harper",
+    "name": "Dylan Harper"
+  },
+  {
+    "id": "franz-wagner",
+    "name": "Franz Wagner"
+  },
+  {
+    "id": "goga-bitadze",
+    "name": "Goga Bitadze"
+  },
+  {
+    "id": "gui-santos",
+    "name": "Gui Santos"
+  },
+  {
+    "id": "herbert-jones",
+    "name": "Herbert Jones"
+  },
+  {
+    "id": "immanuel-quickley",
+    "name": "Immanuel Quickley"
+  },
+  {
+    "id": "isaac-okoro",
+    "name": "Isaac Okoro"
+  },
+  {
+    "id": "isaiah-jackson",
+    "name": "Isaiah Jackson"
+  },
+  {
+    "id": "isaiah-stewart",
+    "name": "Isaiah Stewart"
+  },
+  {
+    "id": "jabari-smith-jr",
+    "name": "Jabari Smith Jr."
+  },
+  {
+    "id": "jaden-mcdaniels",
+    "name": "Jaden McDaniels"
+  },
+  {
+    "id": "jaime-jaquez-jr",
+    "name": "Jaime Jaquez Jr."
+  },
+  {
+    "id": "jalen-green",
+    "name": "Jalen Green"
+  },
+  {
+    "id": "jalen-suggs",
+    "name": "Jalen Suggs"
+  },
+  {
+    "id": "jared-mccain",
+    "name": "Jared McCain"
+  },
+  {
+    "id": "jeremiah-fears",
+    "name": "Jeremiah Fears"
+  },
+  {
+    "id": "jonathan-isaac",
+    "name": "Jonathan Isaac"
+  },
+  {
+    "id": "josh-giddey",
+    "name": "Josh Giddey"
+  },
+  {
+    "id": "josh-green",
+    "name": "Josh Green"
+  },
+  {
+    "id": "keegan-murray",
+    "name": "Keegan Murray"
+  },
+  {
+    "id": "keldon-johnson",
+    "name": "Keldon Johnson"
+  },
+  {
+    "id": "kelel-ware",
+    "name": "Kel'el Ware"
+  },
+  {
+    "id": "kenrich-williams",
+    "name": "Kenrich Williams"
+  },
+  {
+    "id": "keyonte-george",
+    "name": "Keyonte George"
+  },
+  {
+    "id": "kon-knueppel",
+    "name": "Kon Knueppel"
+  },
+  {
+    "id": "kyle-filipowski",
+    "name": "Kyle Filipowski"
+  },
+  {
+    "id": "kyshawn-george",
+    "name": "Kyshawn George"
+  },
+  {
+    "id": "mark-williams",
+    "name": "Mark Williams"
+  },
+  {
+    "id": "matas-buzelis",
+    "name": "Matas Buzelis"
+  },
+  {
+    "id": "max-christie",
+    "name": "Max Christie"
+  },
+  {
+    "id": "maxi-kleber",
+    "name": "Maxi Kleber"
+  },
+  {
+    "id": "michael-kidd-gilchrist",
+    "name": "Michael Kidd-Gilchrist"
+  },
+  {
+    "id": "michael-porter-jr",
+    "name": "Michael Porter Jr."
+  },
+  {
+    "id": "miles-bridges",
+    "name": "Miles Bridges"
+  },
+  {
+    "id": "mitchell-robinson",
+    "name": "Mitchell Robinson"
+  },
+  {
+    "id": "moses-moody",
+    "name": "Moses Moody"
+  },
+  {
+    "id": "moussa-diabate",
+    "name": "Moussa Diabaté"
+  },
+  {
+    "id": "myles-turner",
+    "name": "Myles Turner"
+  },
+  {
+    "id": "naji-marshall",
+    "name": "Naji Marshall"
+  },
+  {
+    "id": "naz-reid",
+    "name": "Naz Reid"
+  },
+  {
+    "id": "neemias-queta",
+    "name": "Neemias Queta"
+  },
+  {
+    "id": "nic-claxton",
+    "name": "Nic Claxton"
+  },
+  {
+    "id": "nikola-jovic",
+    "name": "Nikola Jović"
+  },
+  {
+    "id": "noah-clowney",
+    "name": "Noah Clowney"
+  },
+  {
+    "id": "obi-toppin",
+    "name": "Obi Toppin"
+  },
+  {
+    "id": "og-anunoby",
+    "name": "OG Anunoby"
+  },
+  {
+    "id": "oscar-tshiebwe",
+    "name": "Oscar Tshiebwe"
+  },
+  {
+    "id": "patrick-williams",
+    "name": "Patrick Williams"
+  },
+  {
+    "id": "paul-reed",
+    "name": "Paul Reed"
+  },
+  {
+    "id": "payton-pritchard",
+    "name": "Payton Pritchard"
+  },
+  {
+    "id": "peyton-watson",
+    "name": "Peyton Watson"
+  },
+  {
+    "id": "pj-washington",
+    "name": "P.J. Washington"
+  },
+  {
+    "id": "reed-sheppard",
+    "name": "Reed Sheppard"
+  },
+  {
+    "id": "rj-barrett",
+    "name": "RJ Barrett"
+  },
+  {
+    "id": "robert-williams-iii",
+    "name": "Robert Williams III"
+  },
+  {
+    "id": "sam-hauser",
+    "name": "Sam Hauser"
+  },
+  {
+    "id": "santi-aldama",
+    "name": "Santi Aldama"
+  },
+  {
+    "id": "scoot-henderson",
+    "name": "Scoot Henderson"
+  },
+  {
+    "id": "shaedon-sharpe",
+    "name": "Shaedon Sharpe"
+  },
+  {
+    "id": "stephon-castle",
+    "name": "Stephon Castle"
+  },
+  {
+    "id": "tacko-fall",
+    "name": "Tacko Fall"
+  },
+  {
+    "id": "tari-eason",
+    "name": "Tari Eason"
+  },
+  {
+    "id": "tj-mcconnell",
+    "name": "T.J. McConnell"
+  },
+  {
+    "id": "toumani-camara",
+    "name": "Toumani Camara"
+  },
+  {
+    "id": "tre-johnson",
+    "name": "Tre Johnson"
+  },
+  {
+    "id": "tre-jones",
+    "name": "Tre Jones"
+  },
+  {
+    "id": "trey-murphy-iii",
+    "name": "Trey Murphy III"
+  },
+  {
+    "id": "tristan-da-silva",
+    "name": "Tristan da Silva"
+  },
+  {
+    "id": "udonis-haslem",
+    "name": "Udonis Haslem"
+  },
+  {
+    "id": "walker-kessler",
+    "name": "Walker Kessler"
+  },
+  {
+    "id": "wendell-carter-jr",
+    "name": "Wendell Carter Jr."
+  },
+  {
+    "id": "yves-missi",
+    "name": "Yves Missi"
+  },
+  {
+    "id": "zaccharie-risacher",
+    "name": "Zaccharie Risacher"
+  },
+  {
+    "id": "zach-edey",
+    "name": "Zach Edey"
+  }
+]
