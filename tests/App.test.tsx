@@ -9,8 +9,8 @@ vi.mock("../src/data", async () => {
 });
 const {default: App} = await import("../src/App");
 
-const DAY1 = new Date("2026-11-01T10:00:00Z");
-const DAY2 = new Date("2026-11-02T10:00:00Z");
+const DAY1 = new Date("2026-10-26T10:00:00Z");
+const DAY2 = new Date("2026-10-27T10:00:00Z");
 
 function at(date: Date) {
   vi.useFakeTimers({toFake: ["Date"]});

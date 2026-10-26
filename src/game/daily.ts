@@ -1,4 +1,4 @@
-export const LAUNCH_DATE = "2026-11-01";
+export const LAUNCH_DATE = "2026-10-26";
 const DAY_MS = 24 * 60 * 60 * 1000;
 const berlinFormatter = new Intl.DateTimeFormat("en-CA", {
   timeZone: "Europe/Berlin", year: "numeric", month: "2-digit", day: "2-digit",

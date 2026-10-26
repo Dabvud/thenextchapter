@@ -3,9 +3,9 @@ import { berlinDate, dailyPlayerId, msUntilNextPuzzle, puzzleNumber } from "../.
 
 describe("Tagesrätsel", () => {
   it.each([
-    ["2026-10-31T23:30:00Z", 1], ["2026-10-31T22:59:00Z", 1],
-    ["2026-11-02T10:00:00Z", 2], ["2027-03-28T21:30:00Z", 148],
-    ["2027-03-28T22:30:00Z", 149],
+    ["2026-10-25T23:30:00Z", 1], ["2026-10-25T22:59:00Z", 1],
+    ["2026-10-27T10:00:00Z", 2], ["2027-03-28T21:30:00Z", 154],
+    ["2027-03-28T22:30:00Z", 155],
   ])("berechnet die Rätselnummer für %s", (date, n) => {
     expect(puzzleNumber(new Date(date))).toBe(n);
   });
