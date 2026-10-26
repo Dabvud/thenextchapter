@@ -36,6 +36,7 @@ The Next Chapter und Impostor spielen oder aufs Handy holen kann.
 | Versuche | 6; Überspringen erlaubt (kostet einen Versuch) |
 | Feedback bei Fehltipp | Nur „falsch“, kein Abgleich wie bei Poeltl |
 | Lösungsspieler | (a) relevante aktive Spieler mit ≥ 2 Wechseln, (b) relevante Spieler mit Karriereende 2020–2026 mit ≥ 2 Wechseln, (c) Legenden und All-Stars ohne Wechselregel (vor 2020 nur bekannte All-Stars der jeweiligen Ära; dazu aktuelle Superstars mit < 2 Wechseln wie Curry, Giannis, Jokić) |
+| Journeymen | Zusätzlich Spieler mit Karriere 2000–2020 und Karriereende vor 2020, die bei mindestens 5 verschiedenen Teams waren (Gruppe `journeyman`) |
 | Wechsel | Übergang zu einer anderen Franchise; Rückkehr zählt, Umzug einer Franchise (Sonics → Thunder) nicht |
 | Nur tippbar | Relevante Spieler, die durch die Wechselregel fallen: stehen in der Vorschlagsliste, sind aber nie die Lösung (`decoys.json`) |
 | Stufen | 1 = Superstars, 2 = bekannte Spieler, 3 = Rollenspieler/Journeymen (nach Bekanntheit bei einem NBA-Fan in Deutschland), „Alle“ = Stufe 1–3 |
@@ -107,7 +108,7 @@ Franchise gleich (SEA und OKC → `"OKC"`), daran erkennt man Wechsel vs. Umzug:
 ```
 
 - `tier`: 1, 2 oder 3.
-- `group`: `"aktiv"`, `"retired2020"` oder `"allstar"` (Regel siehe Abschnitt 2); für `aktiv`
+- `group`: `"aktiv"`, `"retired2020"`, `"allstar"` oder `"journeyman"` (Regel siehe Abschnitt 2); für `aktiv`
   und `retired2020` gilt: mindestens 2 Wechsel.
 - `position`: `G`, `F`, `C`, `G-F`, `F-C`.
 - `nation`: ISO-Code, die Anzeige übersetzt ins Deutsche („Frankreich“).

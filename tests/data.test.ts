@@ -49,7 +49,7 @@ describe("Spieldaten", () => {
         numbers: expect.any(Array), stations: expect.any(Array),
       }));
       expect([1, 2, 3]).toContain(player.tier);
-      expect(["aktiv", "retired2020", "allstar"]).toContain(player.group);
+      expect(["aktiv", "retired2020", "allstar", "journeyman"]).toContain(player.group);
       expect(["G", "F", "C", "G-F", "F-C"]).toContain(player.position);
       expect(Object.hasOwn(NATIONS, player.nation), "Unbekannte Nation: " + player.nation).toBe(true);
       expect(player.numbers.length).toBeGreaterThan(0);
@@ -110,6 +110,12 @@ describe("Spieldaten", () => {
         expect(moves(player, teams)).toBeGreaterThanOrEqual(2);
       }
       if (player.group === "aktiv") expect(last.to).toBeNull();
+      if (player.group === "journeyman") {
+        const franchises = new Set(player.stations.map(s => teamEra(s.team, s.from, teams)?.franchise));
+        expect(franchises.size, "mind. 5 verschiedene Teams").toBeGreaterThanOrEqual(5);
+        expect(last.to, "Karriereende vor 2020").not.toBeNull();
+        expect(last.to).toBeLessThanOrEqual(2018);
+      }
       if (player.group === "retired2020") {
         expect(last.to).not.toBeNull();
         expect(last.to).toBeGreaterThanOrEqual(2019);

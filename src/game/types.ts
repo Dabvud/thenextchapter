@@ -1,5 +1,5 @@
 export type Tier = 1 | 2 | 3;
-export type Group = "aktiv" | "retired2020" | "allstar";
+export type Group = "aktiv" | "retired2020" | "allstar" | "journeyman";
 export type Position = "G" | "F" | "C" | "G-F" | "F-C";
 export interface Station { team: string; from: number; to: number | null }
 export interface Player {

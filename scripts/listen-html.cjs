@@ -96,6 +96,7 @@ const CURRENT_SEASON = 2026;
 const GROUPS = [
   ["aktiv", "Aktive Spieler"],
   ["retired2020", "Karriereende 2020–2026"],
+  ["journeyman", "Journeymen 2000–2020 (mind. 5 Teams)"],
   ["allstar", "Legenden und All-Stars"],
 ];
 const TIERS = [1, 2, 3];
