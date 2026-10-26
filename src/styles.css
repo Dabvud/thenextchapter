@@ -85,7 +85,19 @@ h1, h2 { margin: 0; }
 .sig { display: flex; justify-content: space-between; color: var(--muted); font-size: 12px; margin-top: auto; }
 
 /* Spiel */
-.game { gap: 16px; padding-bottom: 140px; }
+.game { gap: 16px; }
+/* Während des Ratens: Rahmen = sichtbarer Bereich über der Tastatur (Höhe/Top per visualViewport) */
+.game.playing {
+  position: fixed;
+  left: 0;
+  right: 0;
+  min-height: 0;
+  gap: 12px;
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+}
+.game-body { flex: 1; min-height: 0; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; }
+.keyboard-open { padding-top: 8px; padding-bottom: 8px; }
+.keyboard-open .game-head { display: none; }
 .game-head { display: flex; align-items: center; gap: 12px; }
 .game-title { font-size: 20px; flex: 1; font-variant-numeric: tabular-nums; }
 .back { padding: 6px 14px; font-size: 22px; line-height: 1; }
@@ -122,6 +134,15 @@ h1, h2 { margin: 0; }
 .career-name { font-size: 17px; font-weight: 600; }
 .career-years { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 15px; }
 
+/* Kompakt, solange die Tastatur offen ist: alle Plaketten in einer umbrechenden Reihe */
+.keyboard-open .career { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 6px 4px; }
+.keyboard-open .career-step { display: flex; align-items: center; gap: 4px; padding: 0; }
+.keyboard-open .career-name { display: none; }
+.keyboard-open .career-years { font-size: 12px; }
+.keyboard-open .career-link { width: 10px; height: 2px; background: var(--line); }
+.keyboard-open .team-badge { height: 30px; width: 48px; font-size: 14px; border-radius: 6px; }
+.keyboard-open .hints { display: none; }
+
 /* Hinweise */
 .hints { margin: 0; display: flex; flex-direction: column; gap: 6px; }
 .hint { display: grid; grid-template-columns: 92px 1fr; gap: 8px; padding: 10px 12px; background: var(--surface); border-radius: var(--radius); }
@@ -133,28 +154,25 @@ h1, h2 { margin: 0; }
 .tries li.wrong { text-decoration: line-through; text-decoration-color: var(--miss); }
 .tries li.skipped { color: var(--muted); }
 
-/* Eingabe unten fixiert, Vorschläge klappen nach oben */
-.guess {
-  position: fixed;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 480px;
-  padding: 10px 16px max(12px, env(safe-area-inset-bottom));
-  background: linear-gradient(transparent, var(--bg) 18px);
-}
+/* Eingabe am unteren Rand des Rahmens; Vorschläge klappen nach oben, bester Treffer direkt über dem Feld */
+.guess { position: relative; flex: none; }
 .guess-options {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(100% + 6px);
+  display: flex;
+  flex-direction: column-reverse;
   list-style: none;
-  margin: 0 0 8px;
+  margin: 0;
   padding: 4px;
-  max-height: 46dvh;
+  max-height: 188px;
   overflow-y: auto;
   background: var(--surface-2);
   border-radius: var(--radius);
-  box-shadow: 0 -8px 24px rgb(0 0 0 / 0.35);
+  box-shadow: 0 -8px 24px rgb(0 0 0 / 0.5);
 }
-.guess-options li { padding: 12px; border-radius: 8px; cursor: pointer; }
+.guess-options li { flex: none; padding: 10px 12px; border-radius: 8px; cursor: pointer; }
 .guess-options li.active { background: var(--accent); color: var(--accent-ink); font-weight: 600; }
 .guess-row { display: flex; gap: 8px; }
 .guess-row input {
